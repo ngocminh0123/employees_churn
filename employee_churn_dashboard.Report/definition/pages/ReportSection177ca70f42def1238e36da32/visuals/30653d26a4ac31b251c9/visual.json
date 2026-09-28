@@ -1,0 +1,301 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.10.0/schema.json",
+  "name": "30653d26a4ac31b251c9",
+  "position": {
+    "x": 580.07968127490039,
+    "y": 57.370517928286851,
+    "z": 2000,
+    "height": 124.94023904382469,
+    "width": 675.69721115537845,
+    "tabOrder": 4000
+  },
+  "visual": {
+    "visualType": "textbox",
+    "objects": {
+      "general": [
+        {
+          "properties": {
+            "paragraphs": [
+              {
+                "textRuns": [
+                  {
+                    "value": "ANALYTICAL OUTPUT",
+                    "textStyle": {
+                      "fontWeight": "bold",
+                      "fontFamily": "Segoe UI Semibold",
+                      "color": "#262626"
+                    }
+                  }
+                ]
+              },
+              {
+                "textRuns": [
+                  {
+                    "value": "Executive Overview:",
+                    "textStyle": {
+                      "fontWeight": "bold",
+                      "fontSize": "10pt",
+                      "color": "#000000"
+                    }
+                  },
+                  {
+                    "value": " Tổng quan tình hình nhân sự và tỷ lệ nghỉ việc toàn công ty",
+                    "textStyle": {
+                      "fontSize": "10pt",
+                      "color": "#000000"
+                    }
+                  }
+                ],
+                "listType": "bullet"
+              },
+              {
+                "textRuns": [
+                  {
+                    "value": "Churn Drivers:",
+                    "textStyle": {
+                      "fontWeight": "bold",
+                      "fontSize": "10pt",
+                      "color": "#000000"
+                    }
+                  },
+                  {
+                    "value": " Xác định những nhóm nhân viên có tỷ lệ nghỉ việc cao cần ưu tiên theo dõi",
+                    "textStyle": {
+                      "fontSize": "10pt",
+                      "color": "#000000"
+                    }
+                  }
+                ],
+                "listType": "bullet"
+              },
+              {
+                "textRuns": [
+                  {
+                    "value": "Compensation Fairness:",
+                    "textStyle": {
+                      "fontWeight": "bold",
+                      "fontSize": "10pt",
+                      "color": "#000000"
+                    }
+                  },
+                  {
+                    "value": " Phát hiện các trường hợp chênh lệch lương cần được xem xét",
+                    "textStyle": {
+                      "fontSize": "10pt",
+                      "color": "#000000"
+                    }
+                  }
+                ],
+                "listType": "bullet"
+              },
+              {
+                "textRuns": [
+                  {
+                    "value": "Key Talent Risk:",
+                    "textStyle": {
+                      "fontWeight": "bold",
+                      "fontSize": "10pt",
+                      "color": "#000000"
+                    }
+                  },
+                  {
+                    "value": " Theo dõi rủi ro mất nhân sự có hiệu suất cao",
+                    "textStyle": {
+                      "fontSize": "10pt",
+                      "color": "#000000"
+                    }
+                  }
+                ],
+                "listType": "bullet"
+              },
+              {
+                "textRuns": [
+                  {
+                    "value": "Recommendations:",
+                    "textStyle": {
+                      "fontWeight": "bold",
+                      "fontSize": "10pt",
+                      "color": "#000000"
+                    }
+                  },
+                  {
+                    "value": " Đề xuất hành động dựa trên kết quả phân tích",
+                    "textStyle": {
+                      "fontSize": "10pt",
+                      "color": "#000000"
+                    }
+                  }
+                ],
+                "listType": "bullet"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "visualContainerObjects": {
+      "background": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "color": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "Literal": {
+                      "Value": "'#FFFFFF'"
+                    }
+                  }
+                }
+              }
+            },
+            "transparency": {
+              "expr": {
+                "Literal": {
+                  "Value": "0D"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "border": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "color": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "Literal": {
+                      "Value": "'#4F86EF'"
+                    }
+                  }
+                }
+              }
+            },
+            "radius": {
+              "expr": {
+                "Literal": {
+                  "Value": "7D"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "padding": [
+        {
+          "properties": {
+            "top": {
+              "expr": {
+                "Literal": {
+                  "Value": "5D"
+                }
+              }
+            },
+            "bottom": {
+              "expr": {
+                "Literal": {
+                  "Value": "5D"
+                }
+              }
+            },
+            "left": {
+              "expr": {
+                "Literal": {
+                  "Value": "12D"
+                }
+              }
+            },
+            "right": {
+              "expr": {
+                "Literal": {
+                  "Value": "12D"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "dropShadow": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "preset": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Center'"
+                }
+              }
+            },
+            "position": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Outer'"
+                }
+              }
+            },
+            "color": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "Literal": {
+                      "Value": "'#7B8494'"
+                    }
+                  }
+                }
+              }
+            },
+            "transparency": {
+              "expr": {
+                "Literal": {
+                  "Value": "70D"
+                }
+              }
+            },
+            "shadowSpread": {
+              "expr": {
+                "Literal": {
+                  "Value": "0D"
+                }
+              }
+            },
+            "shadowBlur": {
+              "expr": {
+                "Literal": {
+                  "Value": "40D"
+                }
+              }
+            },
+            "shadowDistance": {
+              "expr": {
+                "Literal": {
+                  "Value": "0D"
+                }
+              }
+            }
+          }
+        }
+      ]
+    }
+  }
+}

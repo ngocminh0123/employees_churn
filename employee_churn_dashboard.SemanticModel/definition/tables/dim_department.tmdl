@@ -1,0 +1,19 @@
+table dim_department
+	lineageTag: ba0bf852-5828-4285-b08f-0b379cc04587
+
+	column department
+		dataType: string
+		lineageTag: f7b0b9f6-c95c-4c07-9ed6-9cb65f2343ff
+		sourceColumn: department
+
+	partition dim_department = m
+		mode: import
+		source =
+				let
+					Source = PostgreSQL.Database("localhost:5432", "practice_db", [CreateNavigationProperties=false]),
+					Raw = Source{[Schema="employees_churn", Item="dim_department"]}[Data],
+					Localized1 = Table.ReplaceValue(Raw, "HR", "Nhân sự", Replacer.ReplaceValue, {"department"}),
+					Localized2 = Table.ReplaceValue(Localized1, "Sales", "Kinh doanh", Replacer.ReplaceValue, {"department"})
+				in
+					Localized2
+

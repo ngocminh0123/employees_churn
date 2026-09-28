@@ -1,0 +1,101 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/report/3.3.0/schema.json",
+  "themeCollection": {
+    "customTheme": {
+      "name": "EmployeeChurnExecutive-8f6a2c91.json",
+      "reportVersionAtImport": {
+        "visual": "2.6.0",
+        "report": "3.1.0",
+        "page": "2.3.0"
+      },
+      "type": "RegisteredResources"
+    }
+  },
+  "objects": {
+    "outspacePane": [
+      {
+        "properties": {
+          "expanded": {
+            "expr": {
+              "Literal": {
+                "Value": "false"
+              }
+            }
+          }
+        }
+      }
+    ]
+  },
+  "resourcePackages": [
+    {
+      "name": "RegisteredResources",
+      "type": "RegisteredResources",
+      "items": [
+        {
+          "name": "01-workforce-overview-teal-v35314119389082849.png",
+          "path": "01-workforce-overview-teal-v35314119389082849.png",
+          "type": "Image"
+        },
+        {
+          "name": "02-churn-drivers-purple-v38129737973248701.png",
+          "path": "02-churn-drivers-purple-v38129737973248701.png",
+          "type": "Image"
+        },
+        {
+          "name": "03-pay-fairness-orange-v37148730214911716.png",
+          "path": "03-pay-fairness-orange-v37148730214911716.png",
+          "type": "Image"
+        },
+        {
+          "name": "04-key-talent-risk-rose-v37842448938580927.png",
+          "path": "04-key-talent-risk-rose-v37842448938580927.png",
+          "type": "Image"
+        },
+        {
+          "name": "compensation-scale5517553995846303.png",
+          "path": "compensation-scale5517553995846303.png",
+          "type": "Image"
+        },
+        {
+          "name": "employee-churn-workflow-900x289441197586704425.png",
+          "path": "employee-churn-workflow-900x289441197586704425.png",
+          "type": "Image"
+        },
+        {
+          "name": "EmployeeChurnExecutive-8f6a2c91.json",
+          "path": "EmployeeChurnExecutive-8f6a2c91.json",
+          "type": "CustomTheme"
+        },
+        {
+          "name": "insight-lightbulb-orange5831608548965811.png",
+          "path": "insight-lightbulb-orange5831608548965811.png",
+          "type": "Image"
+        },
+        {
+          "name": "insight-lightbulb-rose6790109574142923.png",
+          "path": "insight-lightbulb-rose6790109574142923.png",
+          "type": "Image"
+        },
+        {
+          "name": "insight-lightbulb-teal5004402491645288.png",
+          "path": "insight-lightbulb-teal5004402491645288.png",
+          "type": "Image"
+        },
+        {
+          "name": "key-talent-people-star23032400350990234.png",
+          "path": "key-talent-people-star23032400350990234.png",
+          "type": "Image"
+        },
+        {
+          "name": "retention-people-shield8299016707234772.png",
+          "path": "retention-people-shield8299016707234772.png",
+          "type": "Image"
+        }
+      ]
+    }
+  ],
+  "settings": {
+    "useStylableVisualContainerHeader": true,
+    "useEnhancedTooltips": false
+  }
+}

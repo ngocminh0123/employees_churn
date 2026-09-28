@@ -1,0 +1,349 @@
+table mart_employee_analytics
+	lineageTag: f9b4aa44-d380-4e6e-a9d7-172641fc6f51
+
+	column employee_id
+		dataType: string
+		lineageTag: 4b624f72-e766-49f9-904f-ed81f4d9868a
+		sourceColumn: employee_id
+
+	column age
+		dataType: int64
+		lineageTag: ef56a492-84d2-43dc-a727-f8327606a647
+		summarizeBy: none
+		sourceColumn: age
+
+	column age_band
+		dataType: string
+		lineageTag: 8c122616-abd9-4fa9-8fea-6fd457918834
+		sourceColumn: age_band
+		sortByColumn: age_band_order
+
+	column age_band_order
+		dataType: int64
+		isHidden
+		lineageTag: 27ad200b-4bb5-4215-bf2b-1b815316a4c7
+		summarizeBy: none
+		sourceColumn: age_band_order
+
+	column gender
+		dataType: string
+		lineageTag: 3df4fe09-6cba-4123-b3c7-a1b02779cb1e
+		sourceColumn: gender
+
+	column education_level
+		dataType: string
+		lineageTag: 6d386b96-0663-4706-9046-b42f244b23fc
+		sourceColumn: education_level
+
+	column marital_status
+		dataType: string
+		lineageTag: 7cc8a145-fcf9-45e3-829a-e9d4ae6ade08
+		sourceColumn: marital_status
+
+	column tenure
+		dataType: int64
+		lineageTag: 0c2b4ba7-6787-49e3-9438-203e68826cda
+		summarizeBy: none
+		sourceColumn: tenure
+
+	column tenure_band
+		dataType: string
+		lineageTag: d0fd2f6a-193c-4277-ad5d-f9b2eb336fbf
+		sourceColumn: tenure_band
+		sortByColumn: tenure_band_order
+
+	column tenure_band_order
+		dataType: int64
+		isHidden
+		lineageTag: 6147dc44-2057-4271-b89f-17f1f5109f4c
+		summarizeBy: none
+		sourceColumn: tenure_band_order
+
+	column analysis_year
+		dataType: int64
+		lineageTag: 1614ecc2-2f02-4524-a8d8-08e52684a190
+		summarizeBy: none
+		sourceColumn: analysis_year
+
+	column estimated_hire_year
+		dataType: int64
+		lineageTag: 0b24d1ef-56da-4463-a0e1-a313dcff77a6
+		summarizeBy: none
+		sourceColumn: estimated_hire_year
+
+	column job_role
+		dataType: string
+		lineageTag: 89569b50-f292-4374-8aa4-394bebe789f2
+		sourceColumn: job_role
+
+	column department
+		dataType: string
+		lineageTag: 10ff4694-3db0-4004-8f9c-88f2a4f86911
+		sourceColumn: department
+
+	column team_proxy
+		dataType: string
+		lineageTag: 66f8f734-2a57-4b19-8727-26dde6447a28
+		sourceColumn: team_proxy
+
+	column work_location
+		dataType: string
+		lineageTag: 6b89e998-2ada-473d-889b-1b82b7a56c22
+		sourceColumn: work_location
+
+	column salary
+		dataType: int64
+		lineageTag: f1512c63-1a0c-454a-9c4b-e1b12c851231
+		summarizeBy: none
+		sourceColumn: salary
+
+	column performance_rating
+		dataType: int64
+		lineageTag: 664318e8-a101-4ba9-8558-dbba4c815e0a
+		summarizeBy: none
+		sourceColumn: performance_rating
+
+	column performance_group
+		dataType: string
+		lineageTag: 4b62344a-754d-4448-95b9-d302a27312f5
+		sourceColumn: performance_group
+		sortByColumn: performance_group_order
+
+	column performance_group_order
+		dataType: int64
+		isHidden
+		lineageTag: 9ada0273-bcd7-43ea-8fa5-bedf887a5ad3
+		summarizeBy: none
+		sourceColumn: performance_group_order
+
+	column projects_completed
+		dataType: int64
+		lineageTag: a243b258-9b4e-4041-95e0-2903f0374961
+		summarizeBy: none
+		sourceColumn: projects_completed
+
+	column training_hours
+		dataType: int64
+		lineageTag: d65a0667-163f-4c6a-ba1e-98c11a07e06b
+		summarizeBy: none
+		sourceColumn: training_hours
+
+	column promotions
+		dataType: int64
+		lineageTag: 26cf6f58-226c-4d12-98e5-4f0faf2c4ce0
+		summarizeBy: none
+		sourceColumn: promotions
+
+	column overtime_hours
+		dataType: int64
+		lineageTag: 1bf2b2d3-6024-45c0-9ab4-cf5e8d26e512
+		summarizeBy: none
+		sourceColumn: overtime_hours
+
+	column overtime_band
+		dataType: string
+		lineageTag: f0072237-6fec-42ff-9521-0bde1ee4abb6
+		sourceColumn: overtime_band
+		sortByColumn: overtime_band_order
+
+	column overtime_band_order
+		dataType: int64
+		isHidden
+		lineageTag: 85c83cc8-1906-409d-8a0d-3a6e674cb821
+		summarizeBy: none
+		sourceColumn: overtime_band_order
+
+	column average_monthly_hours_worked
+		dataType: int64
+		lineageTag: f369aed2-863c-4078-840b-c531f2411064
+		summarizeBy: none
+		sourceColumn: average_monthly_hours_worked
+
+	column monthly_hours_band
+		dataType: string
+		lineageTag: 12c82e08-f655-47b4-9abc-0162e8ad16d1
+		sourceColumn: monthly_hours_band
+		sortByColumn: monthly_hours_band_order
+
+	column monthly_hours_band_order
+		dataType: int64
+		isHidden
+		lineageTag: 907010f0-8e78-45cd-aa17-f7054b66a2ff
+		summarizeBy: none
+		sourceColumn: monthly_hours_band_order
+
+	column satisfaction_level
+		dataType: double
+		lineageTag: 38429184-e5ad-44b7-b6ae-de4297369ed8
+		summarizeBy: sum
+		sourceColumn: satisfaction_level
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column satisfaction_band
+		dataType: string
+		lineageTag: d67d8ffe-e643-4bb0-a327-e865116e4fe5
+		sourceColumn: satisfaction_band
+		sortByColumn: satisfaction_band_order
+
+	column satisfaction_band_order
+		dataType: int64
+		isHidden
+		lineageTag: 07556259-dd58-470e-a8b4-b1d998dff57d
+		summarizeBy: none
+		sourceColumn: satisfaction_band_order
+
+	column absenteeism
+		dataType: int64
+		lineageTag: 98f0ef63-1855-4815-a468-9ff16f5404d1
+		summarizeBy: none
+		sourceColumn: absenteeism
+
+	column distance_from_home
+		dataType: int64
+		lineageTag: b62dfa44-bf51-49ab-ac81-f51c24504b91
+		summarizeBy: none
+		sourceColumn: distance_from_home
+
+	column manager_feedback_score
+		dataType: double
+		lineageTag: 136440ec-0c3e-4915-a221-da402b9e0af4
+		summarizeBy: sum
+		sourceColumn: manager_feedback_score
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column feedback_band
+		dataType: string
+		lineageTag: 457e4d9e-a981-42cb-8abc-fbd726588052
+		sourceColumn: feedback_band
+		sortByColumn: feedback_band_order
+
+	column feedback_band_order
+		dataType: int64
+		isHidden
+		lineageTag: d2b7ff73-5b49-4736-a5a9-4a5f39bf1b17
+		summarizeBy: none
+		sourceColumn: feedback_band_order
+
+	column peer_count
+		dataType: int64
+		lineageTag: cf9051f8-aadd-4103-9f5f-1ab7c28a0419
+		summarizeBy: none
+		sourceColumn: peer_count
+
+	column peer_avg_salary
+		dataType: double
+		lineageTag: 90f56337-bb9b-41ef-89c9-f78b24466dd1
+		summarizeBy: sum
+		sourceColumn: peer_avg_salary
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column peer_median_salary
+		dataType: double
+		lineageTag: 6c67d553-69ae-4d4c-b225-98e8b74dab48
+		summarizeBy: sum
+		sourceColumn: peer_median_salary
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column salary_quartile
+		dataType: int64
+		lineageTag: fc940eb2-c2bb-4623-b4d1-5c11df1a7cdd
+		summarizeBy: none
+		sourceColumn: salary_quartile
+
+	column salary_gap_vs_peer_median_pct
+		dataType: double
+		lineageTag: 02d9bb48-aff5-433d-be35-4093b67b31d3
+		summarizeBy: sum
+		sourceColumn: salary_gap_vs_peer_median_pct
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column role_peer_avg_salary
+		dataType: double
+		lineageTag: 590f2faf-9539-4b9b-9928-4f4240573879
+		summarizeBy: sum
+		sourceColumn: role_peer_avg_salary
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column role_salary_gap_pct
+		dataType: double
+		lineageTag: 196f14de-5896-4c6f-8d3d-e2b5e2dee073
+		summarizeBy: sum
+		sourceColumn: role_salary_gap_pct
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column underpaid_10_flag
+		dataType: int64
+		lineageTag: 263c0963-88a0-41e7-b5df-1b221acb090e
+		summarizeBy: none
+		sourceColumn: underpaid_10_flag
+
+	column underpaid_25_flag
+		dataType: int64
+		lineageTag: 396053cb-f065-465f-b127-b3c05a85e155
+		summarizeBy: none
+		sourceColumn: underpaid_25_flag
+
+	column churn
+		dataType: boolean
+		lineageTag: 86f0fd18-b9dc-4f75-8a13-19d1a45b8edc
+		sourceColumn: churn
+
+	partition mart_employee_analytics = m
+		mode: import
+		source =
+				let
+					Source = PostgreSQL.Database("localhost:5432", "practice_db", [CreateNavigationProperties=false]),
+					Raw = Source{[Schema="employees_churn", Item="mart_employee_analytics"]}[Data],
+					Localized1 = Table.ReplaceValue(Raw, "Female", "Nữ", Replacer.ReplaceValue, {"gender"}),
+					Localized2 = Table.ReplaceValue(Localized1, "Male", "Nam", Replacer.ReplaceValue, {"gender"}),
+					Localized3 = Table.ReplaceValue(Localized2, "Other", "Khác", Replacer.ReplaceValue, {"gender"}),
+					Localized4 = Table.ReplaceValue(Localized3, "Hybrid", "Kết hợp", Replacer.ReplaceValue, {"work_location"}),
+					Localized5 = Table.ReplaceValue(Localized4, "On-site", "Tại văn phòng", Replacer.ReplaceValue, {"work_location"}),
+					Localized6 = Table.ReplaceValue(Localized5, "Remote", "Từ xa", Replacer.ReplaceValue, {"work_location"}),
+					Localized7 = Table.ReplaceValue(Localized6, "HR", "Nhân sự", Replacer.ReplaceValue, {"department"}),
+					Localized8 = Table.ReplaceValue(Localized7, "Sales", "Kinh doanh", Replacer.ReplaceValue, {"department"}),
+					Localized9 = Table.ReplaceValue(Localized8, "Analyst", "Phân tích", Replacer.ReplaceValue, {"job_role"}),
+					Localized10 = Table.ReplaceValue(Localized9, "Developer", "Phát triển hệ thống", Replacer.ReplaceValue, {"job_role"}),
+					Localized11 = Table.ReplaceValue(Localized10, "Manager", "Quản lý", Replacer.ReplaceValue, {"job_role"}),
+					Localized12 = Table.ReplaceValue(Localized11, "Sales", "Kinh doanh", Replacer.ReplaceValue, {"job_role"}),
+					Localized13 = Table.ReplaceValue(Localized12, "Under 1 year", "Dưới 1 năm", Replacer.ReplaceValue, {"tenure_band"}),
+					Localized14 = Table.ReplaceValue(Localized13, "1 to under 3 years", "1 đến <3 năm", Replacer.ReplaceValue, {"tenure_band"}),
+					Localized15 = Table.ReplaceValue(Localized14, "3 to 5 years", "3 đến 5 năm", Replacer.ReplaceValue, {"tenure_band"}),
+					Localized16 = Table.ReplaceValue(Localized15, "Over 5 years", "Trên 5 năm", Replacer.ReplaceValue, {"tenure_band"}),
+					Localized17 = Table.ReplaceValue(Localized16, "Low (1-2)", "Thấp (1-2)", Replacer.ReplaceValue, {"performance_group"}),
+					Localized18 = Table.ReplaceValue(Localized17, "Medium (3)", "Trung bình (3)", Replacer.ReplaceValue, {"performance_group"}),
+					Localized19 = Table.ReplaceValue(Localized18, "High (4-5)", "Cao (4-5)", Replacer.ReplaceValue, {"performance_group"}),
+					Localized20 = Table.ReplaceValue(Localized19, "Low", "Thấp", Replacer.ReplaceValue, {"satisfaction_band"}),
+					Localized21 = Table.ReplaceValue(Localized20, "Medium", "Trung bình", Replacer.ReplaceValue, {"satisfaction_band"}),
+					Localized22 = Table.ReplaceValue(Localized21, "High", "Cao", Replacer.ReplaceValue, {"satisfaction_band"}),
+					Localized23 = Table.ReplaceValue(Localized22, "Low", "Thấp", Replacer.ReplaceValue, {"feedback_band"}),
+					Localized24 = Table.ReplaceValue(Localized23, "Medium", "Trung bình", Replacer.ReplaceValue, {"feedback_band"}),
+					Localized25 = Table.ReplaceValue(Localized24, "High", "Cao", Replacer.ReplaceValue, {"feedback_band"}),
+					Localized26 = Table.ReplaceValue(Localized25, "0 hours", "0 giờ", Replacer.ReplaceValue, {"overtime_band"}),
+					Localized27 = Table.ReplaceValue(Localized26, "1-10 hours", "1-10 giờ", Replacer.ReplaceValue, {"overtime_band"}),
+					Localized28 = Table.ReplaceValue(Localized27, "11-20 hours", "11-20 giờ", Replacer.ReplaceValue, {"overtime_band"}),
+					Localized29 = Table.ReplaceValue(Localized28, "21+ hours", "Trên 20 giờ", Replacer.ReplaceValue, {"overtime_band"})
+				in
+					Localized29
+

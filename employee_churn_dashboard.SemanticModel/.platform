@@ -1,0 +1,11 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/gitIntegration/platformProperties/2.0.0/schema.json",
+  "metadata": {
+    "type": "SemanticModel",
+    "displayName": "Employee Churn Dashboard"
+  },
+  "config": {
+    "version": "2.0",
+    "logicalId": "6aac60f4-21ac-44f3-8074-7ac3455bd8ab"
+  }
+}

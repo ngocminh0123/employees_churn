@@ -1,0 +1,21 @@
+table dim_job_role
+	lineageTag: 0e90d443-7561-41d0-ad7a-f1c73b36b75f
+
+	column job_role
+		dataType: string
+		lineageTag: 59c07480-c99d-49cb-9eb6-30dab8b7f327
+		sourceColumn: job_role
+
+	partition dim_job_role = m
+		mode: import
+		source =
+				let
+					Source = PostgreSQL.Database("localhost:5432", "practice_db", [CreateNavigationProperties=false]),
+					Raw = Source{[Schema="employees_churn", Item="dim_job_role"]}[Data],
+					Localized1 = Table.ReplaceValue(Raw, "Analyst", "Phân tích", Replacer.ReplaceValue, {"job_role"}),
+					Localized2 = Table.ReplaceValue(Localized1, "Developer", "Phát triển hệ thống", Replacer.ReplaceValue, {"job_role"}),
+					Localized3 = Table.ReplaceValue(Localized2, "Manager", "Quản lý", Replacer.ReplaceValue, {"job_role"}),
+					Localized4 = Table.ReplaceValue(Localized3, "Sales", "Kinh doanh", Replacer.ReplaceValue, {"job_role"})
+				in
+					Localized4
+

@@ -1,0 +1,1014 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.10.0/schema.json",
+  "name": "62734ea9af689b851936",
+  "position": {
+    "x": 24.565656565656564,
+    "y": 218.50505050505049,
+    "z": 2000,
+    "height": 191.35353535353536,
+    "width": 1230.8686868686868,
+    "tabOrder": 3000
+  },
+  "visual": {
+    "visualType": "pivotTable",
+    "query": {
+      "queryState": {
+        "Columns": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "dim_job_role"
+                    }
+                  },
+                  "Property": "job_role"
+                }
+              },
+              "queryRef": "dim_job_role.job_role",
+              "nativeQueryRef": "job_role",
+              "active": true,
+              "displayName": "Vị trí"
+            }
+          ]
+        },
+        "Rows": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "dim_department"
+                    }
+                  },
+                  "Property": "department"
+                }
+              },
+              "queryRef": "dim_department.department",
+              "nativeQueryRef": "department",
+              "active": true,
+              "displayName": "Phòng ban"
+            }
+          ]
+        },
+        "Values": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "All Measures"
+                    }
+                  },
+                  "Property": "High Performer Churn Rate"
+                }
+              },
+              "queryRef": "All Measures.High Performer Churn Rate",
+              "nativeQueryRef": "High Performer Churn Rate",
+              "displayName": "Tỷ lệ churn của nhóm hiệu suất cao"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "All Measures"
+                    }
+                  },
+                  "Property": "High Performer Headcount"
+                }
+              },
+              "queryRef": "All Measures.High Performer Headcount",
+              "nativeQueryRef": "High Performer Headcount",
+              "displayName": "Nhân viên hiệu suất cao"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "All Measures"
+                    }
+                  },
+                  "Property": "High Performer Churned"
+                }
+              },
+              "queryRef": "All Measures.High Performer Churned",
+              "nativeQueryRef": "High Performer Churned",
+              "displayName": "Nhân viên hiệu suất cao đã nghỉ"
+            }
+          ]
+        }
+      },
+      "sortDefinition": {
+        "sort": [
+          {
+            "field": {
+              "Measure": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "All Measures"
+                  }
+                },
+                "Property": "High Performer Churn Rate"
+              }
+            },
+            "direction": "Ascending"
+          }
+        ]
+      }
+    },
+    "objects": {
+      "columnHeaders": [
+        {
+          "properties": {
+            "columnAdjustment": {
+              "expr": {
+                "Literal": {
+                  "Value": "'growToFit'"
+                }
+              }
+            },
+            "autoSizeColumnWidth": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "defaultColumnWidth": {
+              "expr": {
+                "Literal": {
+                  "Value": "65D"
+                }
+              }
+            },
+            "wordWrap": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "fontSize": {
+              "expr": {
+                "Literal": {
+                  "Value": "9D"
+                }
+              }
+            },
+            "fontColor": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "Literal": {
+                      "Value": "'#FFFFFF'"
+                    }
+                  }
+                }
+              }
+            },
+            "backColor": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "Literal": {
+                      "Value": "'#263A67'"
+                    }
+                  }
+                }
+              }
+            },
+            "bold": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "rowHeaders": [
+        {
+          "properties": {
+            "wordWrap": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "fontSize": {
+              "expr": {
+                "Literal": {
+                  "Value": "10D"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "values": [
+        {
+          "properties": {
+            "wordWrap": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "fontSize": {
+              "expr": {
+                "Literal": {
+                  "Value": "11D"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "columnWidth": [
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "87.3741438978519D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "data": [
+              {
+                "scopeId": {
+                  "Comparison": {
+                    "ComparisonKind": 0,
+                    "Left": {
+                      "Column": {
+                        "Expression": {
+                          "SourceRef": {
+                            "Entity": "dim_job_role"
+                          }
+                        },
+                        "Property": "job_role"
+                      }
+                    },
+                    "Right": {
+                      "Literal": {
+                        "Value": "'Kinh doanh'"
+                      }
+                    }
+                  }
+                }
+              }
+            ],
+            "metadata": "All Measures.High Performer Churn Rate"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "61.48894927202696D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "data": [
+              {
+                "scopeId": {
+                  "Comparison": {
+                    "ComparisonKind": 0,
+                    "Left": {
+                      "Column": {
+                        "Expression": {
+                          "SourceRef": {
+                            "Entity": "dim_job_role"
+                          }
+                        },
+                        "Property": "job_role"
+                      }
+                    },
+                    "Right": {
+                      "Literal": {
+                        "Value": "'Kinh doanh'"
+                      }
+                    }
+                  }
+                }
+              }
+            ],
+            "metadata": "All Measures.High Performer Headcount"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "80.0238313702125D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "data": [
+              {
+                "scopeId": {
+                  "Comparison": {
+                    "ComparisonKind": 0,
+                    "Left": {
+                      "Column": {
+                        "Expression": {
+                          "SourceRef": {
+                            "Entity": "dim_job_role"
+                          }
+                        },
+                        "Property": "job_role"
+                      }
+                    },
+                    "Right": {
+                      "Literal": {
+                        "Value": "'Kinh doanh'"
+                      }
+                    }
+                  }
+                }
+              }
+            ],
+            "metadata": "All Measures.High Performer Churned"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "87.14253852495746D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "data": [
+              {
+                "scopeId": {
+                  "Comparison": {
+                    "ComparisonKind": 0,
+                    "Left": {
+                      "Column": {
+                        "Expression": {
+                          "SourceRef": {
+                            "Entity": "dim_job_role"
+                          }
+                        },
+                        "Property": "job_role"
+                      }
+                    },
+                    "Right": {
+                      "Literal": {
+                        "Value": "'Phân tích'"
+                      }
+                    }
+                  }
+                }
+              }
+            ],
+            "metadata": "All Measures.High Performer Churn Rate"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "62.68001833299127D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "data": [
+              {
+                "scopeId": {
+                  "Comparison": {
+                    "ComparisonKind": 0,
+                    "Left": {
+                      "Column": {
+                        "Expression": {
+                          "SourceRef": {
+                            "Entity": "dim_job_role"
+                          }
+                        },
+                        "Property": "job_role"
+                      }
+                    },
+                    "Right": {
+                      "Literal": {
+                        "Value": "'Phân tích'"
+                      }
+                    }
+                  }
+                }
+              }
+            ],
+            "metadata": "All Measures.High Performer Headcount"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "82.75927588269319D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "data": [
+              {
+                "scopeId": {
+                  "Comparison": {
+                    "ComparisonKind": 0,
+                    "Left": {
+                      "Column": {
+                        "Expression": {
+                          "SourceRef": {
+                            "Entity": "dim_job_role"
+                          }
+                        },
+                        "Property": "job_role"
+                      }
+                    },
+                    "Right": {
+                      "Literal": {
+                        "Value": "'Phân tích'"
+                      }
+                    }
+                  }
+                }
+              }
+            ],
+            "metadata": "All Measures.High Performer Churned"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "85.80636910279318D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "data": [
+              {
+                "scopeId": {
+                  "Comparison": {
+                    "ComparisonKind": 0,
+                    "Left": {
+                      "Column": {
+                        "Expression": {
+                          "SourceRef": {
+                            "Entity": "dim_job_role"
+                          }
+                        },
+                        "Property": "job_role"
+                      }
+                    },
+                    "Right": {
+                      "Literal": {
+                        "Value": "'Phát triển hệ thống'"
+                      }
+                    }
+                  }
+                }
+              }
+            ],
+            "metadata": "All Measures.High Performer Churn Rate"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "62.72786743492362D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "data": [
+              {
+                "scopeId": {
+                  "Comparison": {
+                    "ComparisonKind": 0,
+                    "Left": {
+                      "Column": {
+                        "Expression": {
+                          "SourceRef": {
+                            "Entity": "dim_job_role"
+                          }
+                        },
+                        "Property": "job_role"
+                      }
+                    },
+                    "Right": {
+                      "Literal": {
+                        "Value": "'Phát triển hệ thống'"
+                      }
+                    }
+                  }
+                }
+              }
+            ],
+            "metadata": "All Measures.High Performer Headcount"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "80.12045176247138D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "data": [
+              {
+                "scopeId": {
+                  "Comparison": {
+                    "ComparisonKind": 0,
+                    "Left": {
+                      "Column": {
+                        "Expression": {
+                          "SourceRef": {
+                            "Entity": "dim_job_role"
+                          }
+                        },
+                        "Property": "job_role"
+                      }
+                    },
+                    "Right": {
+                      "Literal": {
+                        "Value": "'Phát triển hệ thống'"
+                      }
+                    }
+                  }
+                }
+              }
+            ],
+            "metadata": "All Measures.High Performer Churned"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "87.259536107705D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "data": [
+              {
+                "scopeId": {
+                  "Comparison": {
+                    "ComparisonKind": 0,
+                    "Left": {
+                      "Column": {
+                        "Expression": {
+                          "SourceRef": {
+                            "Entity": "dim_job_role"
+                          }
+                        },
+                        "Property": "job_role"
+                      }
+                    },
+                    "Right": {
+                      "Literal": {
+                        "Value": "'Quản lý'"
+                      }
+                    }
+                  }
+                }
+              }
+            ],
+            "metadata": "All Measures.High Performer Churn Rate"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "63.99468101677211D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "data": [
+              {
+                "scopeId": {
+                  "Comparison": {
+                    "ComparisonKind": 0,
+                    "Left": {
+                      "Column": {
+                        "Expression": {
+                          "SourceRef": {
+                            "Entity": "dim_job_role"
+                          }
+                        },
+                        "Property": "job_role"
+                      }
+                    },
+                    "Right": {
+                      "Literal": {
+                        "Value": "'Quản lý'"
+                      }
+                    }
+                  }
+                }
+              }
+            ],
+            "metadata": "All Measures.High Performer Headcount"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "76.21175966461274D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "data": [
+              {
+                "scopeId": {
+                  "Comparison": {
+                    "ComparisonKind": 0,
+                    "Left": {
+                      "Column": {
+                        "Expression": {
+                          "SourceRef": {
+                            "Entity": "dim_job_role"
+                          }
+                        },
+                        "Property": "job_role"
+                      }
+                    },
+                    "Right": {
+                      "Literal": {
+                        "Value": "'Quản lý'"
+                      }
+                    }
+                  }
+                }
+              }
+            ],
+            "metadata": "All Measures.High Performer Churned"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "84.71390889107451D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "data": [
+              {
+                "total": [
+                  {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "dim_job_role"
+                        }
+                      },
+                      "Property": "job_role"
+                    }
+                  }
+                ]
+              }
+            ],
+            "metadata": "All Measures.High Performer Churn Rate"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "62.62759094236334D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "data": [
+              {
+                "total": [
+                  {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "dim_job_role"
+                        }
+                      },
+                      "Property": "job_role"
+                    }
+                  }
+                ]
+              }
+            ],
+            "metadata": "All Measures.High Performer Headcount"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "78.76161258739387D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "data": [
+              {
+                "total": [
+                  {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "dim_job_role"
+                        }
+                      },
+                      "Property": "job_role"
+                    }
+                  }
+                ]
+              }
+            ],
+            "metadata": "All Measures.High Performer Churned"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "81.48282839046028D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "dim_department.department"
+          }
+        }
+      ]
+    },
+    "visualContainerObjects": {
+      "title": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            },
+            "text": {
+              "expr": {
+                "Literal": {
+                  "Value": "''"
+                }
+              }
+            },
+            "fontSize": {
+              "expr": {
+                "Literal": {
+                  "Value": "14D"
+                }
+              }
+            },
+            "fontColor": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "Literal": {
+                      "Value": "'#262626'"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      ],
+      "background": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "color": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "Literal": {
+                      "Value": "'#FFFFFF'"
+                    }
+                  }
+                }
+              }
+            },
+            "transparency": {
+              "expr": {
+                "Literal": {
+                  "Value": "0D"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "border": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "color": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "Literal": {
+                      "Value": "'#AFC6FF'"
+                    }
+                  }
+                }
+              }
+            },
+            "radius": {
+              "expr": {
+                "Literal": {
+                  "Value": "9D"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "visualHeader": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "padding": [
+        {
+          "properties": {
+            "top": {
+              "expr": {
+                "Literal": {
+                  "Value": "0D"
+                }
+              }
+            },
+            "bottom": {
+              "expr": {
+                "Literal": {
+                  "Value": "0D"
+                }
+              }
+            },
+            "left": {
+              "expr": {
+                "Literal": {
+                  "Value": "0D"
+                }
+              }
+            },
+            "right": {
+              "expr": {
+                "Literal": {
+                  "Value": "0D"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "dropShadow": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "preset": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Center'"
+                }
+              }
+            },
+            "position": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Outer'"
+                }
+              }
+            },
+            "color": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "Literal": {
+                      "Value": "'#7B8494'"
+                    }
+                  }
+                }
+              }
+            },
+            "transparency": {
+              "expr": {
+                "Literal": {
+                  "Value": "70D"
+                }
+              }
+            },
+            "shadowSpread": {
+              "expr": {
+                "Literal": {
+                  "Value": "0D"
+                }
+              }
+            },
+            "shadowBlur": {
+              "expr": {
+                "Literal": {
+                  "Value": "40D"
+                }
+              }
+            },
+            "shadowDistance": {
+              "expr": {
+                "Literal": {
+                  "Value": "0D"
+                }
+              }
+            }
+          }
+        }
+      ]
+    }
+  }
+}

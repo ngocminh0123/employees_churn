@@ -1,0 +1,154 @@
+table 'All Measures'
+	lineageTag: 3f7d1427-0fd5-4bd1-ae4b-03c25d0a19ca
+
+	/// Distinct employee count in the current filter context
+	measure 'Total Employees' = DISTINCTCOUNT('mart_employee_analytics'[employee_id])
+		formatString: #,##0
+		lineageTag: 83cec7bd-4484-4a50-a3aa-5495c63c1f9a
+
+	/// Employees currently marked active
+	measure 'Active Employees' = CALCULATE([Total Employees], 'mart_employee_analytics'[churn] = FALSE())
+		formatString: #,##0
+		lineageTag: cd5608c6-dfd5-477e-917a-91b1e9573b61
+
+	/// Employees marked as churned
+	measure 'Total Churned' = CALCULATE([Total Employees], 'mart_employee_analytics'[churn] = TRUE())
+		formatString: #,##0
+		lineageTag: 1f33384e-57af-4644-b203-437752c0d0ba
+
+	/// Churned employees divided by employee count
+	measure 'Churn Rate' = DIVIDE([Total Churned], [Total Employees], 0)
+		formatString: 0.00%
+		lineageTag: 0b5ee7b1-59f0-41f6-bfc1-477af237ef0c
+
+	/// Unfiltered company churn benchmark
+	measure 'Company Churn Rate' = CALCULATE([Churn Rate], REMOVEFILTERS('mart_employee_analytics'), REMOVEFILTERS('dim_department'), REMOVEFILTERS('dim_job_role'), REMOVEFILTERS('dim_gender'), REMOVEFILTERS('dim_work_location'))
+		formatString: 0.00%
+		lineageTag: aaf6e7f7-b24e-403c-9202-eddca4cd917c
+
+	/// Percentage-point difference from company churn
+	measure 'Churn Delta vs Company (pp)' = 100 * ([Churn Rate] - [Company Churn Rate])
+		formatString: 0.00
+		lineageTag: 8c47cd4e-b75b-497e-94fb-c29c6f5c588c
+
+	/// Average recorded overtime hours
+	measure 'Average Overtime Hours' = AVERAGE('mart_employee_analytics'[overtime_hours])
+		formatString: #,##0.00
+		lineageTag: a13ce633-c10a-49eb-b533-22a70a52120a
+
+	/// Average monthly hours worked
+	measure 'Average Monthly Hours' = AVERAGE('mart_employee_analytics'[average_monthly_hours_worked])
+		formatString: #,##0.00
+		lineageTag: 7a8813fc-84fa-4176-aab0-669899536e25
+
+	/// Average satisfaction score
+	measure 'Average Satisfaction' = AVERAGE('mart_employee_analytics'[satisfaction_level])
+		formatString: 0.00
+		lineageTag: b2a1bffb-1e82-43eb-98d2-382307b71cce
+
+	/// Average recorded absenteeism
+	measure 'Average Absenteeism' = AVERAGE('mart_employee_analytics'[absenteeism])
+		formatString: #,##0.00
+		lineageTag: a6362f2b-57ca-45c6-b3ad-1650cccb9b23
+
+	/// Share of employees with a promotion indicator
+	measure 'Promotion Rate' = AVERAGE('mart_employee_analytics'[promotions])
+		formatString: 0.00%
+		lineageTag: d87ec9a3-e22e-4ecd-9124-84b2f2fd34a5
+
+	/// Average manager feedback score
+	measure 'Average Manager Feedback' = AVERAGE('mart_employee_analytics'[manager_feedback_score])
+		formatString: 0.00
+		lineageTag: f1b6a43c-c417-4646-9451-25e2ff9182ab
+
+	/// Average salary in source units
+	measure 'Average Salary' = AVERAGE('mart_employee_analytics'[salary])
+		formatString: #,##0
+		lineageTag: c4472332-fbc4-4a85-9ee2-a444980f7fb9
+
+	/// Median salary in source units
+	measure 'Median Salary' = MEDIAN('mart_employee_analytics'[salary])
+		formatString: #,##0
+		lineageTag: 3f547381-6658-46b7-b814-17bf3204a68b
+
+	/// Male average salary benchmark
+	measure 'Male Average Salary' = CALCULATE([Average Salary], REMOVEFILTERS('dim_gender'), 'dim_gender'[gender] = "Nam")
+		formatString: #,##0
+		lineageTag: 683f37df-e213-4aed-947e-a281c7fbcfa6
+
+	/// Raw salary gap versus male average
+	measure 'Raw Pay Gap vs Male' = DIVIDE([Average Salary] - [Male Average Salary], [Male Average Salary])
+		formatString: 0.00%
+		lineageTag: 9f122f96-e972-456f-9eae-ca3804804b31
+
+	/// Average gap versus role and tenure peer median
+	measure 'Average Peer Median Gap' = AVERAGE('mart_employee_analytics'[salary_gap_vs_peer_median_pct]) / 100
+		formatString: 0.00%
+		lineageTag: d059f1d0-e88a-437b-82c5-75413e1f399b
+
+	/// Average gap versus same-role peer average
+	measure 'Average Role Peer Gap' = AVERAGE('mart_employee_analytics'[role_salary_gap_pct]) / 100
+		formatString: 0.00%
+		lineageTag: a906e14e-65ad-462b-b35f-0b77cccf7938
+
+	/// Employees more than 10 percent below same-role average
+	measure 'Underpaid 10% Count' = CALCULATE([Total Employees], 'mart_employee_analytics'[underpaid_10_flag] = 1)
+		formatString: #,##0
+		lineageTag: be20c4f2-f84d-4fcb-9a74-17a3c19df97b
+
+	/// Employees at least 25 percent below same-role average
+	measure 'Underpaid 25% Count' = CALCULATE([Total Employees], 'mart_employee_analytics'[underpaid_25_flag] = 1)
+		formatString: #,##0
+		lineageTag: 1644ea5c-868f-4355-a1b8-480c93ad62f1
+
+	/// Share flagged below same-role average by more than 10 percent
+	measure 'Underpaid 10% Rate' = DIVIDE([Underpaid 10% Count], [Total Employees], 0)
+		formatString: 0.00%
+		lineageTag: 03d690a1-e2c5-424c-88e2-19a2277763c5
+
+	/// Employees with performance rating 4 or 5
+	measure 'High Performer Headcount' = CALCULATE([Total Employees], 'mart_employee_analytics'[performance_rating] >= 4)
+		formatString: #,##0
+		lineageTag: 263b8e55-1aab-4b50-8ec6-1f07274d3df0
+
+	/// Churned employees with performance rating 4 or 5
+	measure 'High Performer Churned' = CALCULATE([Total Churned], 'mart_employee_analytics'[performance_rating] >= 4)
+		formatString: #,##0
+		lineageTag: 7e41f180-0450-4db4-bbdf-9dbf89ea2865
+
+	/// Churn rate among high performers
+	measure 'High Performer Churn Rate' = DIVIDE([High Performer Churned], [High Performer Headcount], 0)
+		formatString: 0.00%
+		lineageTag: 08c18904-ac3e-4638-917e-ec0f7e12e1ac
+
+	/// Dictionary row count
+	measure 'Dictionary Field Count' = COUNTROWS('mart_data_dictionary')
+		formatString: #,##0
+		lineageTag: a308a390-3e50-4b3c-9816-e2b8a0c364a0
+
+	/// Input dictionary field count
+	measure 'Input Field Count' = CALCULATE([Dictionary Field Count], 'mart_data_dictionary'[dictionary_scope] = "Input")
+		formatString: #,##0
+		lineageTag: 5c994734-829c-4b42-86b1-870cc2680010
+
+	/// Output dictionary field count
+	measure 'Output Field Count' = CALCULATE([Dictionary Field Count], 'mart_data_dictionary'[dictionary_scope] = "Output")
+		formatString: #,##0
+		lineageTag: 496fcca6-368f-4422-af8a-a7bfc0afb7c7
+
+	/// Validates headline KPI values against the approved baseline
+	measure 'KPI Reconciliation Status' = VAR EmployeeCount = CALCULATE([Total Employees], REMOVEFILTERS('mart_employee_analytics'), REMOVEFILTERS('dim_department'), REMOVEFILTERS('dim_job_role'), REMOVEFILTERS('dim_gender'), REMOVEFILTERS('dim_work_location')) VAR ChurnedCount = CALCULATE([Total Churned], REMOVEFILTERS('mart_employee_analytics'), REMOVEFILTERS('dim_department'), REMOVEFILTERS('dim_job_role'), REMOVEFILTERS('dim_gender'), REMOVEFILTERS('dim_work_location')) RETURN IF(EmployeeCount = 10000 && ChurnedCount = 2028 && ABS(DIVIDE(ChurnedCount, EmployeeCount, 0) - 0.2028) < 0.000001, "ĐẠT", "CẦN KIỂM TRA")
+		formatString: General
+		lineageTag: caa47ed0-21a9-418b-9f3b-49fc9316683d
+
+	column Version
+		dataType: int64
+		isHidden
+		lineageTag: 7e2d9e4a-f3b5-4ec7-8f00-af1f3d8c554b
+		summarizeBy: none
+		sourceColumn: [Version]
+
+	partition 'All Measures' = calculated
+		mode: import
+		source = ROW("Version", 1)
+

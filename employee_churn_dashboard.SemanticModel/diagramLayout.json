@@ -1,0 +1,113 @@
+{
+  "version": "1.1.0",
+  "diagrams": [
+    {
+      "ordinal": 0,
+      "scrollPosition": {
+        "x": 215,
+        "y": 0
+      },
+      "nodes": [
+        {
+          "location": {
+            "x": 898.94480069178178,
+            "y": 77.226807699267624
+          },
+          "nodeIndex": "All Measures",
+          "nodeLineageTag": "3f7d1427-0fd5-4bd1-ae4b-03c25d0a19ca",
+          "size": {
+            "height": 300,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 618.94480069178178,
+            "y": 132.73215901207544
+          },
+          "nodeIndex": "dim_department",
+          "nodeLineageTag": "ba0bf852-5828-4285-b08f-0b379cc04587",
+          "size": {
+            "height": 104,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 310.75515572292619,
+            "y": -50
+          },
+          "nodeIndex": "dim_gender",
+          "nodeLineageTag": "d34a6a68-bac6-4b8f-92ac-899b082b5d79",
+          "size": {
+            "height": 104,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 50,
+            "y": 105.70006117702246
+          },
+          "nodeIndex": "dim_job_role",
+          "nodeLineageTag": "0e90d443-7561-41d0-ad7a-f1c73b36b75f",
+          "size": {
+            "height": 104,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 399.42434924920508,
+            "y": 458.45361539853531
+          },
+          "nodeIndex": "dim_work_location",
+          "nodeLineageTag": "f8dae9c6-92c6-4cb6-b6d5-02545542d9a2",
+          "size": {
+            "height": 104,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 904.94480069178189,
+            "y": 424.22680769926762
+          },
+          "nodeIndex": "mart_data_dictionary",
+          "nodeLineageTag": "23dd9fe9-12cd-4a6b-b1eb-2d40b85f3acc",
+          "size": {
+            "height": 272,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 338.92320198392571,
+            "y": 106.3520330115125
+          },
+          "nodeIndex": "mart_employee_analytics",
+          "nodeLineageTag": "f9b4aa44-d380-4e6e-a9d7-172641fc6f51",
+          "size": {
+            "height": 300,
+            "width": 234
+          },
+          "zIndex": 0
+        }
+      ],
+      "name": "All tables",
+      "zoomValue": 100,
+      "pinKeyFieldsToTop": false,
+      "showExtraHeaderInfo": false,
+      "hideKeyFieldsWhenCollapsed": false,
+      "tablesLocked": false
+    }
+  ],
+  "selectedDiagram": "All tables",
+  "defaultDiagram": "All tables"
+}
