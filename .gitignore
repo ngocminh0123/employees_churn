@@ -1,2 +1,22 @@
+# Data files
+employee_info.xlsx
+*.xlsx
+*.csv
+
+# Power BI local cache & legacy PBIP artifacts
 **/.pbi/localSettings.json
 **/.pbi/cache.abf
+*.pbip
+employee_churn_dashboard.Report/
+employee_churn_dashboard.SemanticModel/
+
+# Scratch & development files
+README_test_1.md
+sample.md
+build_power_bi_project.js
+redesign_power_bi.py
+qa_redesign.py
+__pycache__/
+*.py[cod]
+desktop.ini
+Thumbs.db
