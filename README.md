@@ -144,27 +144,27 @@ flowchart RL
 ```
 Sử dụng PLSQL Programming xây dựng các bảng dim và fact ([reporting_marts.sql](reporting_marts.sql))
 
-1. **Xây dựng các bảng Dimension)**:
+1. **Xây dựng các bảng Dimension**:
    - `dim_department`: Bảng chiều danh mục phòng ban (`IT`, `Sales`, `Marketing`, `HR`).
 
-![dim_department](assets\dim_mart_tables\dim_department.png)
+![dim_department](assets/dim_mart_tables/dim_department.png)
 
    - `dim_job_role`: Bảng chiều danh mục vị trí công việc (`Analyst`, `Developer`, `Manager`, `Sales`).
 
-![dim_job_role](assets\dim_mart_tables\dim_job_role.png)
+![dim_job_role](assets/dim_mart_tables/dim_job_role.png)
 
    - `dim_gender`: Bảng chiều danh mục giới tính (`Male`, `Female`, `Other`).
 
-![dim_gender](assets\dim_mart_tables\dim_gender.png)
+![dim_gender](assets/dim_mart_tables/dim_gender.png)
 
    - `dim_work_location`: Bảng chiều hình thức làm việc (`Remote`, `Hybrid`, `On-site`).
 
-![dim_work_location](assets\dim_mart_tables\dim_work_location.png)
+![dim_work_location](assets/dim_mart_tables/dim_work_location.png)
 
 2. **Xây dựng bảng fact (`mart_employee_analytics`)**:
 
-![mart_employee_analytics](assets\dim_mart_tables\mart_employee_analytics_1.png)
-![mart_employee_analytics](assets\dim_mart_tables\mart_employee_analytics_2.png)
+![mart_employee_analytics](assets/dim_mart_tables/mart_employee_analytics_1.png)
+![mart_employee_analytics](assets/dim_mart_tables/mart_employee_analytics_2.png)
 
 Trong đó:
 
@@ -183,7 +183,7 @@ Trong đó:
 3. **Từ điển dữ liệu (`mart_data_dictionary`)**:
    Lưu trữ siêu dữ liệu (metadata), tên cột, kiểu dữ liệu, định nghĩa nghiệp vụ và vai trò trong phân tích, phục vụ trực tiếp cho trang tra cứu Data Dictionary trên dashboard Power BI.
 
-![mart_data_dictionary](assets\dim_mart_tables\mart_data_dictionary.png)
+![mart_data_dictionary](assets/dim_mart_tables/mart_data_dictionary.png)
 
 ---
 
