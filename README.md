@@ -34,7 +34,7 @@ Mục tiêu cốt lõi của dự án là chuyển đổi phương thức quản
 
 ---
 
-## 2. Kết quả kỳ vọng
+## 2. Kết quả cần trình bày
 
 | Câu hỏi của Giám đốc nhân sự | Kết quả trình bày |
 | --- | --- |
