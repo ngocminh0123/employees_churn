@@ -56,8 +56,6 @@ Mục tiêu cốt lõi của dự án là chuyển đổi phương thức quản
 
 ### 3.1. Quy mô dữ liệu
 
-Dữ liệu đầu vào được lưu trữ trong tệp [employee_info.xlsx](employee_info.xlsx) gồm một trang tính `employee_info`:
-
 | Chỉ tiêu | Kết quả kiểm tra |
 |---|---:|
 | Tổng số nhân viên ghi nhận | 10.000 |
