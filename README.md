@@ -1,54 +1,36 @@
 # Phân tích tình trạng nhân viên nghỉ việc tại Công ty Tài chính An Việt
 
-**Ngôn ngữ:** Tiếng Việt | [English](README_en.md)
+[English](README_en.md) | **Tiếng Việt**
 
 ---
 
 ## 1. Bối cảnh kinh doanh
 
-Trong ngành tài chính và dịch vụ tài chính hiện đại, nguồn nhân lực chất lượng cao chính là tài sản quý giá nhất quyết định năng lực cạnh tranh, hiệu quả vận hành và khả năng kiểm soát rủi ro của doanh nghiệp. Đối với Công ty Tài chính An Việt, một tổ chức tài chính có quy mô **10.000 nhân sự**, việc duy trì sự ổn định của bộ máy nhân lực là điều kiện tiên quyết để đảm bảo chất lượng dịch vụ khách hàng, tuân thủ quy chuẩn vận hành và bảo đảm tiến độ triển khai các dự án chuyển đổi số tài chính then chốt.
+Một nhân viên có thể mất nhiều tháng để làm quen với công việc, tích lũy kinh nghiệm và phối hợp hiệu quả với đồng nghiệp. Nhưng khi họ rời đi, người thay thế sẽ cần thời gian để thích nghi với môi trường mới, trong khi những kinh nghiệm mà người cũ tích lũy được cũng khó có thể chuyển giao đầy đủ trong thời gian ngắn cho người mới. Khi tình trạng này diễn ra ở nhiều nhân viên trong cùng một giai đoạn, doanh nghiệp cần nhìn nhận nghiêm túc hơn về tình hình nhân sự và tìm hiểu những vấn đề có thể đang tồn tại bên trong tổ chức.
 
-Tuy nhiên, trong thời gian gần đây, **bộ máy vận hành bắt đầu ghi nhận những dấu hiệu bất ổn**: Một số dự án nghiệp vụ bị trễ hạn bàn giao khiến cho chất lượng xử lý công việc sụt giảm và phát sinh chi phí vận hành ngoài kế hoạch. Qua các đợt rà soát sơ bộ, Ban Giám đốc nhận diện nguyên nhân cốt lõi không nằm ở sự thiếu hụt hạ tầng công cụ, mà xuất phát từ **làn sóng nghỉ việc của các nhân sự chủ chốt**.
+Tại An Việt, những biến động nhân sự gần đây cũng khiến Ban Giám đốc quan tâm hơn đến vấn đề này. Trong một buổi trao đổi với bộ phận People Analytics, Giám đốc Nhân sự (Head of People) đặt ra yêu cầu:
 
-Mỗi khi một nhân sự giàu kinh nghiệm rời đi, doanh nghiệp phải đối mặt với nhiều tổn thất:
-- **Đứt gãy tiến độ công việc và gián đoạn vận hành**: Khối lượng công việc tồn đọng không có người kế thừa ngay lập tức, công tác bàn giao bị đứt đoạn, khiến tiến độ các dự án tài chính bị đình trệ.
-- **Quá tải với các nhân sự hiện tại**: Khối lượng công việc dồn ép lên những nhân sự ở lại, tạo ra áp lực tâm lý căng thẳng, suy giảm mức độ hài lòng và có khả năng gây ra làn sóng nghỉ việc tiếp theo.
-- **Chi phí thay thế đắt đỏ**: Chi phí tuyển dụng, đào tạo và thời gian chờ để một nhân sự mới nắm vững nghiệp vụ chuyên sâu và đạt năng suất tương đương thường tốn nhiều hơn mức lương của nhân sự cũ. Việc chỉ trông cậy vào tuyển dụng là giải pháp vừa tốn kém, vừa bị động.
+> **Dạo gần đây tỷ lệ nhân viên nghỉ việc của công ty tăng khá bất thường khiến một số dự án bị ảnh hưởng tiến độ và công ty cũng phải tốn thêm nhiều chi phí để tuyển dụng, đào tạo người thay thế. Anh muốn nhìn lại tình hình này một cách rõ ràng hơn, nên em giúp anh xây dựng một dashboard để theo dõi thực trạng nghỉ việc và xem vấn đề đang tập trung ở đâu, từ đó anh có cơ sở để xác định những việc cần ưu tiên xử lý nhé.**
 
-Thực tế này đặt ra yêu cầu cấp bách cho Ban Giám đốc và bộ phận Nhân sự (Head of People): Doanh nghiệp không thể tiếp tục bù đắp chi phí khi sự việc xảy ra, mà cần phải phân tích sâu dữ liệu nhân sự để thấu hiểu bản chất vấn đề, từ đó chủ động xây dựng chiến lược giữ chân nhân sự.
+Từ yêu cầu của Giám đốc Nhân sự, tôi chia thành các mục tiêu sau:
 
-Trước tình hình đó, **Giám đốc Nhân sự (Head of People)** đặt ra câu hỏi:
-
-> **"Thực trạng nghỉ việc tại công ty hiện đang ở mức độ nào, tập trung ở những nhóm cụ thể nào? Những yếu tố nào về công việc, khối lượng giờ làm và chính sách đãi ngộ thực sự có ảnh hưởng tới quyết định nghỉ việc của nhân viên? Và liệu có thể nhận diện sớm các điểm rủi ro để chuyển từ thế bị động sang chủ động giữ chân nhân tài hay không?"**
-
-Để trả lời toàn diện câu hỏi của Giám đốc Nhân sự, dự án tập trung vào bốn mục tiêu cụ thể:
-
-1. Đo lường tỷ lệ churn toàn công ty và làm rõ sự khác biệt giữa các phòng ban, vị trí công việc, thâm niên và đặc điểm nhân khẩu học.
-2. Khảo sát mối liên hệ giữa tình trạng nghỉ việc với khối lượng công việc (giờ làm việc, giờ làm thêm), mức độ hài lòng, tương tác với quản lý và cơ hội thăng tiến bằng các phương pháp kiểm định thống kê khách quan.
-3. Đối chuẩn mức lương theo các nhóm đồng cấp có cùng vai trò và thâm niên; rà soát khoảng cách thu nhập theo giới tính và sàng lọc danh sách các trường hợp có độ lệch lương đáng kể cần được ưu tiên xem xét.
-4. Xác định các phòng ban và tổ hợp công việc đang ghi nhận tổn thất lớn nhất về số lượng và tỷ lệ nhân viên có hiệu suất cao rời bỏ, làm cơ sở xây dựng kế hoạch kế nhiệm và phỏng vấn giữ chân.
-
-Mục tiêu cốt lõi của dự án là chuyển đổi phương thức quản trị nhân sự:
-
-> **Từ việc bị động ghi nhận nhân sự rời đi khi dự án đã trễ hạn → Thấu hiểu thực trạng và nhận diện các bất cập cốt lõi trong đãi ngộ, khối lượng công việc → Chủ động rà soát, bảo vệ đội ngũ nhân tài và hoạch định chính sách nhân sự dựa trên dữ liệu thực tế.**
+1. Đánh giá quy mô và tỷ lệ nhân viên nghỉ việc theo phòng ban, vị trí công việc và thâm niên
+2. Xác định các yếu tố liên quan đến quyết định nghỉ việc (giờ làm, làm thêm giờ, mức độ hài lòng, phản hồi của quản lý)
+3. Rà soát tính công bằng trong chính sách đãi ngộ giữa các nhóm đồng cấp và theo giới tính
+4. Nhận diện nhóm nhân sự hiệu suất cao có rủi ro rời bỏ để kịp thời đưa ra giải pháp giữ chân
 
 ---
 
-## 2. Kết quả cần trình bày
+## 2. Đầu ra kỳ vọng
 
-| Câu hỏi của Giám đốc nhân sự | Kết quả trình bày |
-| --- | --- |
-| **Churn đang ở mức nào và phân bố ra sao?** | Quy mô, tỷ lệ toàn công ty, phân bố theo phòng ban, thâm niên và năm tuyển dụng ước tính |
-| **Những yếu tố nào có liên quan đến nghỉ việc?** | So sánh churn theo giờ làm việc, làm thêm giờ, mức độ hài lòng, quản lý và thăng tiến |
-| **Chính sách lương đã hợp lý và công bằng chưa?** | Phân phối lương theo vai trò, hiệu suất; mức chênh lệch lương so với nhóm đồng cấp và khoảng cách lương theo giới tính |
-| **Nhân tài đang rời bỏ ở những phòng ban, vị trí nào?** | Số lượng và tỷ lệ nhân viên có hiệu suất cao (`rating >= 4`) đã nghỉ việc theo phòng ban và vị trí công việc |
+Để đáp ứng yêu cầu của Giám đốc Nhân sự, báo cáo được thiết kế thành hệ thống gồm 4 Dashboard liên kết theo luồng phân tích từ nhận diện thực trạng đến giải pháp khuyến nghị:
 
-### Các trang trình bày trên Power BI Dashboard
-
-- **01 — Tổng quan**: Trả lời: *Churn đang ở mức nào và đang phân bố ra sao giữa các nhóm nhân viên?*
-- **02 — Yếu tố gây nên Churn**: Trả lời: *Những yếu tố nào về thời gian, khối lượng công việc, sự hài lòng và quản lý có liên hệ với tỷ lệ nghỉ việc?*
-- **03 — Công bằng thu nhập**: Trả lời: *Mức lương có công bằng giữa các nhân viên cùng vai trò, thâm niên, hiệu suất và giới tính hay không?*
-- **04 — Rủi ro mất nhân sự chủ chốt**: Trả lời: *Nhân sự hiệu suất cao đang rời bỏ ở những phòng ban và vị trí công việc nào nhiều nhất?*
+| STT | Dashboard | Nội dung trình bày | Ý nghĩa |
+| :---: | :--- | :--- | :--- |
+| **01** | **Tổng quan tình trạng nghỉ việc** | Trực quan hóa bức tranh tổng thể về quy mô, tỷ lệ nghỉ việc toàn công ty và tỷ lệ nghỉ việc giữa các nhóm nhân sự | Xác định tình trạng nghỉ việc đang tập trung ở đâu và nhóm nào cần được tìm hiểu sâu hơn |
+| **02** | **Yếu tố liên quan đến nghỉ việc** | Phân tích mối liên hệ giữa tình trạng nghỉ việc với các đặc trưng liên quan tới nhân sự và các khía cạnh trong công việc | Nhận diện những yếu tố đáng chú ý có thể ảnh hưởng đến quyết định nghỉ việc của nhân viên |
+| **03** | **Tính công bằng trong thu nhập** | Đánh giá chênh lệch thu nhập giữa các nhóm nhân sự khác nhau | Nhận diện những vấn đề tiềm ẩn trong thu nhập để xem xét lại tính công bằng của chính sách đãi ngộ |
+| **04** | **Rủi ro mất nhân sự chủ chốt** | Nhận diện rủi ro rời bỏ ở nhóm nhân sự có hiệu suất cao (`performance_rating >= 4`) | Xác định những nhóm có tình trạng mất nhân sự hiệu suất cao cần được chú ý để ưu tiên tìm hiểu và cân nhắc biện pháp giữ chân phù hợp |
 
 ---
 
@@ -59,39 +41,36 @@ Mục tiêu cốt lõi của dự án là chuyển đổi phương thức quản
 | Chỉ tiêu | Kết quả kiểm tra |
 |---|---:|
 | Tổng số nhân viên ghi nhận | 10.000 |
-| Số trường thông tin | 22 |
 | Số nhân viên đã nghỉ việc (`churn = True`) | 2.028 |
 | Tỷ lệ nghỉ việc toàn công ty | 20,28% |
-| Số bản ghi trùng lặp mã nhân viên (`employee_id`) | 0 |
-| Trường dữ liệu thiếu 100% | `work_life_balance` (loại khỏi phân tích) |
 | Mốc thời gian tham chiếu phân tích | Năm 2026 |
 
-### 3.2. Danh mục trường dữ liệu gốc
+### 3.2. Các đặc trưng chính
 
-| Tên trường | Kiểu dữ liệu | Mô tả nghiệp vụ | Vai trò trong phân tích |
-|---|---|---|---|
-| `employee_id` | String | Mã định danh duy nhất của nhân viên | Khóa định danh chính (Primary Key) |
-| `age` | Integer | Tuổi của nhân viên | Phân khúc nhân khẩu học |
-| `gender` | String | Giới tính ghi nhận (`Male`, `Female`, `Other`) | Phân khúc và đối soát chênh lệch lương |
-| `education_level` | String | Trình độ học vấn cao nhất | Biến phân nhóm nhân khẩu |
-| `marital_status` | String | Tình trạng hôn nhân (`Single`, `Married`, `Divorced`) | Biến phân khúc nhân khẩu |
-| `tenure` | Integer | Thâm niên công tác (giả định đơn vị là năm) | Xác định nhóm đồng cấp và vòng đời nhân sự |
-| `job_role` | String | Vị trí công việc (`Analyst`, `Developer`, `Manager`, `Sales`) | Xác định nhóm đồng cấp và cơ cấu nhân sự |
-| `department` | String | Phòng ban (`IT`, `Sales`, `Marketing`, `HR`) | Phân khúc theo cơ cấu tổ chức |
-| `salary` | Decimal | Mức lương ghi nhận | Phân tích thu nhập và công bằng lương |
-| `work_location` | String | Hình thức làm việc (`Remote`, `Hybrid`, `On-site`) | Phân tích chế độ làm việc linh hoạt |
-| `performance_rating` | Decimal | Điểm đánh giá hiệu suất (thang điểm từ 1 đến 5) | Biến đại diện (proxy) nhận diện nhân sự hiệu suất cao |
-| `projects_completed` | Integer | Số dự án đã hoàn thành | Khối lượng công việc / năng suất |
-| `training_hours` | Integer | Số giờ tham gia đào tạo | Đánh giá cơ hội học tập và phát triển |
-| `promotions` | Integer | Cờ chỉ báo nhị phân nhân viên từng được thăng chức (0/1) | Phân tích cơ hội thăng tiến nghề nghiệp |
-| `overtime_hours` | Integer | Số giờ làm thêm được ghi nhận | Đánh giá cường độ làm việc quá tải |
-| `satisfaction_level` | Decimal | Mức độ hài lòng của nhân viên (thang điểm từ 0 đến 1) | Đo lường trải nghiệm nhân viên |
-| `work_life_balance` | Null | Chỉ số cân bằng công việc và cuộc sống | Bị loại do khuyết 100% dữ liệu |
-| `average_monthly_hours_worked` | Integer | Số giờ làm việc trung bình mỗi tháng | Đo lường cường độ làm việc |
+| Tên cột | Kiểu dữ liệu | Mô tả |
+|---|---|---|
+| `employee_id` | String | Mã định danh duy nhất của nhân viên |
+| `age` | Integer | Tuổi của nhân viên |
+| `gender` | String | Giới tính ghi nhận (`Male`, `Female`, `Other`) |
+| `education_level` | String | Trình độ học vấn cao nhất |
+| `marital_status` | String | Tình trạng hôn nhân (`Single`, `Married`, `Divorced`) |
+| `tenure` | Integer | Thâm niên công tác (giả định đơn vị là năm) |
+| `job_role` | String | Vị trí công việc (`Analyst`, `Developer`, `Manager`, `Sales`) |
+| `department` | String | Phòng ban (`IT`, `Sales`, `Marketing`, `HR`) |
+| `salary` | Decimal | Mức lương ghi nhận |
+| `work_location` | String | Hình thức làm việc (`Remote`, `Hybrid`, `On-site`) |
+| `performance_rating` | Decimal | Điểm đánh giá hiệu suất (thang điểm từ 1 đến 5) |
+| `projects_completed` | Integer | Số dự án đã hoàn thành |
+| `training_hours` | Integer | Số giờ tham gia đào tạo |
+| `promotions` | Integer | Cờ chỉ báo nhị phân nhân viên từng được thăng chức (0/1) |
+| `overtime_hours` | Integer | Số giờ làm thêm được ghi nhận |
+| `satisfaction_level` | Decimal | Mức độ hài lòng của nhân viên (thang điểm từ 0 đến 1) |
+| `work_life_balance` | Null | Chỉ số cân bằng công việc và cuộc sống |
+| `average_monthly_hours_worked` | Integer | Số giờ làm việc trung bình mỗi tháng |
 | `absenteeism` | Integer | Số ngày vắng mặt được ghi nhận | Tín hiệu về mức độ gắn kết / kiệt sức |
-| `distance_from_home` | Decimal | Khoảng cách từ nhà đến nơi làm việc | Bối cảnh đi lại / chế độ làm việc linh hoạt |
-| `manager_feedback_score` | Decimal | Điểm phản hồi từ cấp quản lý (thang điểm từ 1 đến 10) | Đánh giá quan hệ giữa nhân viên và quản lý |
-| `churn` | Boolean | Trạng thái nghỉ việc (`True`: đã nghỉ việc, `False`: còn làm việc) | Biến kết quả mục tiêu (Target variable) |
+| `distance_from_home` | Decimal | Khoảng cách từ nhà đến nơi làm việc |
+| `manager_feedback_score` | Decimal | Điểm phản hồi từ cấp quản lý (thang điểm từ 1 đến 10) |
+| `churn` | Boolean | Trạng thái nghỉ việc (`True`: đã nghỉ việc, `False`: còn làm việc) |
 
 ---
 
@@ -193,7 +172,7 @@ Trong đó:
 
 ![Dashboard tổng quan tình trạng nghỉ việc](assets/dashboard/executive-overview.png)
 
-Dashboard ghi nhận quy mô toàn công ty gồm **10.000 nhân viên**, trong đó **2.028 người đã nghỉ việc**, tương ứng với tỷ lệ churn toàn công ty là **20,28%**.
+Dữ liệu ghi nhận quy mô toàn công ty gồm **10.000 nhân viên**, trong đó **2.028 người đã nghỉ việc**, tương ứng với tỷ lệ churn toàn công ty là **20,28%**.
 
 Trong đó:
 
@@ -241,7 +220,7 @@ Trong đó:
 ![Dashboard phân tích rủi ro mất nhân sự có hiệu suất cao](assets/dashboard/key-talent-risk.png)
 
 - Chỉ tiêu `performance_rating >= 4` được sử dụng để nhận diện nhóm nhân viên có hiệu suất cao. 
-- Dashboard thể hiện có **4.092 nhân viên hiệu suất cao**, trong đó có **823 người đã nghỉ việc**, tương ứng tỷ lệ churn trong nhóm này là **20,11%** (xấp xỉ mức trung bình toàn công ty).
+- Dữ liệu thể hiện có **4.092 nhân viên hiệu suất cao**, trong đó có **823 người đã nghỉ việc**, tương ứng tỷ lệ churn trong nhóm này là **20,11%** (xấp xỉ mức trung bình toàn công ty).
 
 Trong đó:
 

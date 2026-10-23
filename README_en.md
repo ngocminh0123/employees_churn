@@ -1,117 +1,94 @@
 # Employee Churn Analysis at An Viet Financial Company
 
-**Language:** [Tiếng Việt](README.md) | **English**
+**English** | [Tiếng Việt](README.md)
 
 ---
 
 ## 1. Business Context
 
-In the modern finance and financial services industry, high-quality human resources are the most valuable asset determining a firm's competitiveness, operational efficiency, and risk governance capability. For An Viet Financial Company, a financial institution with a workforce of **10,000 employees**, maintaining workforce stability is a prerequisite for ensuring customer service quality, regulatory compliance, and delivering key digital finance transformation projects on schedule.
+An employee may take several months to get acquainted with their work, accumulate experience, and collaborate effectively with colleagues. But when they depart, their replacement requires time to adapt to the new environment, while the expertise built up by the predecessor can hardly be fully transferred in a short period. When this situation occurs across numerous employees within the same period, the organization needs to take a more serious look at its workforce health and explore potential underlying issues within the organization.
 
-Recently, however, **operational operations have begun showing signs of instability**: Several business projects suffered milestone delays, leading to decreased work execution quality and unexpected operational costs. Through preliminary reviews, the Board of Directors recognized that the root cause was not a lack of tooling or infrastructure, but stemmed from a **wave of resignations among key personnel**.
+At An Viet, recent personnel fluctuations have drawn heightened attention from the Board of Directors. During a discussion with the People Analytics team, the Head of People stated the requirement:
 
-Every time an experienced employee departs, the company faces multiple setbacks:
-- **Disrupted project progress and operational handovers**: Backlogged workloads lack immediate successors, and interrupted handovers stall financial project timelines.
-- **Workload overburdening on remaining staff**: Workloads pile onto remaining team members, causing severe psychological stress, declining job satisfaction, and potentially triggering a secondary wave of resignations.
-- **Costly replacement expenses**: Recruitment, training, and ramp-up time for a new hire to master specialized financial operations and achieve comparable productivity typically exceed the compensation of departed personnel. Relying solely on replacement hiring is both expensive and reactive.
+> **"Recently, our employee churn rate has increased quite unusually, causing delays in several projects and costing the company significant additional expenses to recruit and train replacements. I want to look back at this situation more clearly, so please help me build a dashboard to track churn realities and see where the problem is concentrated, providing me with an empirical basis to determine priority actions."**
 
-This reality presents an urgent mandate for the Board of Directors and the Human Resources Department (Head of People): Rather than continuing to absorb costs reactively after departures happen, the firm must thoroughly analyze workforce data to understand the underlying drivers, thereby proactively formulating an effective employee retention strategy.
+From the Head of People's request, I divided the problem into the following objectives:
 
-Addressing this issue, the **Head of People** raised the central question:
-
-> **"What is the current scale of employee churn at the company, and is it concentrated in specific groups? Which factors concerning workload, working hours, and compensation actually influence employees' decision to leave? And can we identify risk points early to shift from a reactive stance to proactive talent retention?"**
-
-To comprehensively answer the Head of People's question, the project focuses on four specific objectives:
-
-1. Measure company-wide churn rate and clarify variations across departments, job roles, tenure brackets, and demographic characteristics.
-2. Examine the relationship between churn and workload (working hours, overtime), satisfaction levels, manager interaction, and promotion opportunities using objective statistical evaluations.
-3. Benchmark salaries against peer groups with comparable roles and tenure; examine gender pay gaps and screen for individuals with significant compensation disparities requiring review.
-4. Identify the departments and role combinations suffering the heaviest losses in terms of both volume and proportion of high-performing employee departures, establishing a basis for succession planning and stay interviews.
-
-The ultimate goal of the project is to transform human resource management practices:
-
-> **From reactively recording employee departures after project delays occur → Understanding current reality and uncovering core imbalances in compensation and workload → Proactively auditing, protecting key talent, and formulating HR policies backed by empirical data.**
+1. Assess the scale and churn rate of employees across departments, job roles, and tenure cohorts.
+2. Identify factors associated with churn decisions (working hours, overtime, satisfaction levels, manager feedback).
+3. Review compensation equity across peer groups and by gender.
+4. Identify high-performing talent at risk of leaving to propose timely retention solutions.
 
 ---
 
 ## 2. Expected Outcomes
 
-| Head of People's Questions | Deliverables |
-| --- | --- |
-| **What is the churn rate and how is it distributed?** | Company-wide scale and rate, distribution by department, tenure, and estimated hire cohort |
-| **Which factors are associated with churn?** | Churn comparisons across working hours, overtime, satisfaction, management, and promotions |
-| **Is compensation equitable and reasonable?** | Salary distribution by role and performance; salary disparities relative to peer groups and gender pay gaps |
-| **Where is key talent leaving from?** | Count and percentage of departed high performers (`rating >= 4`) by department and job role |
+To address the Head of People's requirements, the reporting system is designed as a suite of 4 interconnected Dashboards following an analytical flow from reality diagnosis to recommended actions:
 
-### Power BI Dashboard Pages
-
-- **01 — Executive Overview**: Answers: *What is the current churn rate, and how is it distributed across employee segments?*
-- **02 — Churn Drivers**: Answers: *Which factors regarding working hours, workload, satisfaction, and management relate to employee churn?*
-- **03 — Compensation Fairness**: Answers: *Is compensation equitable across employees with comparable roles, tenure, performance, and gender?*
-- **04 — Key Talent Risk**: Answers: *Which departments and job roles are losing the most high-performing employees?*
+| No. | Dashboard | Content & Scope | Business Significance |
+| :---: | :--- | :--- | :--- |
+| **01** | **Churn Overview** | Visualizes the overall landscape regarding company-wide churn scale, churn rate, and churn distribution across employee segments | Identifies where churn is concentrated and which employee groups require deeper investigation |
+| **02** | **Factors Associated with Churn** | Analyzes the relationships between churn status and employee attributes as well as various work aspects | Pinpoints notable factors that may influence employees' decisions to leave |
+| **03** | **Compensation Fairness** | Evaluates salary disparities across different employee groups | Identifies underlying compensation issues to reassess the fairness of remuneration policies |
+| **04** | **Key Talent Loss Risk** | Identifies attrition risks among high-performing employees (`performance_rating >= 4`) | Pinpoints segments with high attrition among top talent to prioritize root-cause analysis and determine appropriate retention measures |
 
 ---
 
-## 3. Data Overview
+## 3. Data
 
 ### 3.1. Dataset Scale
-
-Input data is stored in [employee_info.xlsx](employee_info.xlsx), sheet `employee_info`:
 
 | Metric | Inspection Result |
 |---|---:|
 | Total recorded employees | 10,000 |
-| Number of attributes | 22 |
 | Departed employees (`churn = True`) | 2,028 |
 | Company-wide churn rate | 20.28% |
-| Duplicate employee IDs (`employee_id`) | 0 |
-| 100% missing field | `work_life_balance` (excluded from analysis) |
 | Analysis reference year | 2026 |
 
-### 3.2. Data Dictionary of Raw Attributes
+### 3.2. Key Features
 
-| Column Name | Data Type | Business Description | Analytical Role |
-|---|---|---|---|
-| `employee_id` | String | Unique employee identifier | Primary Key |
-| `age` | Integer | Employee age | Demographic segmentation |
-| `gender` | String | Recorded gender (`Male`, `Female`, `Other`) | Segmentation & pay gap reconciliation |
-| `education_level` | String | Highest completed education level | Demographic explanatory factor |
-| `marital_status` | String | Marital status (`Single`, `Married`, `Divorced`) | Demographic segmentation |
-| `tenure` | Integer | Length of employment (assumed unit: years) | Peer group definition & employee lifecycle |
-| `job_role` | String | Job title (`Analyst`, `Developer`, `Manager`, `Sales`) | Peer group definition & workforce structure |
-| `department` | String | Department (`IT`, `Sales`, `Marketing`, `HR`) | Organizational segmentation |
-| `salary` | Decimal | Recorded compensation | Compensation & fairness analysis |
-| `work_location` | String | Work arrangement (`Remote`, `Hybrid`, `On-site`) | Flexible work arrangement analysis |
-| `performance_rating` | Decimal | Performance evaluation score (scale 1 to 5) | Proxy variable for identifying high performers |
-| `projects_completed` | Integer | Number of completed projects | Workload / productivity context |
-| `training_hours` | Integer | Training hours completed | Learning & professional development context |
-| `promotions` | Integer | Binary indicator of prior promotion (0/1) | Career progression analysis |
-| `overtime_hours` | Integer | Recorded overtime hours | Overwork & workload intensity context |
-| `satisfaction_level` | Decimal | Employee job satisfaction score (scale 0 to 1) | Employee experience measurement |
-| `work_life_balance` | Null | Work-life balance metric | Excluded due to 100% missing values |
-| `average_monthly_hours_worked` | Integer | Average monthly working hours | Workload intensity measurement |
-| `absenteeism` | Integer | Number of recorded absent days | Engagement / burnout signal |
-| `distance_from_home` | Decimal | Distance from home to workplace | Commute context / flexible work analysis |
-| `manager_feedback_score` | Decimal | Manager feedback rating (scale 1 to 10) | Manager-employee relationship evaluation |
-| `churn` | Boolean | Departure status (`True`: departed, `False`: active) | Target outcome variable |
+| Column Name | Data Type | Description |
+|---|---|---|
+| `employee_id` | String | Unique employee identifier |
+| `age` | Integer | Employee age |
+| `gender` | String | Recorded gender (`Male`, `Female`, `Other`) |
+| `education_level` | String | Highest completed education level |
+| `marital_status` | String | Marital status (`Single`, `Married`, `Divorced`) |
+| `tenure` | Integer | Length of service (assumed unit: years) |
+| `job_role` | String | Job title (`Analyst`, `Developer`, `Manager`, `Sales`) |
+| `department` | String | Department (`IT`, `Sales`, `Marketing`, `HR`) |
+| `salary` | Decimal | Recorded salary |
+| `work_location` | String | Work arrangement (`Remote`, `Hybrid`, `On-site`) |
+| `performance_rating` | Decimal | Performance evaluation score (scale 1 to 5) |
+| `projects_completed` | Integer | Number of completed projects |
+| `training_hours` | Integer | Number of training hours attended |
+| `promotions` | Integer | Binary indicator of prior promotion (0/1) |
+| `overtime_hours` | Integer | Recorded overtime hours |
+| `satisfaction_level` | Decimal | Employee job satisfaction score (scale 0 to 1) |
+| `work_life_balance` | Null | Work-life balance index |
+| `average_monthly_hours_worked` | Integer | Average monthly working hours |
+| `absenteeism` | Integer | Number of recorded absent days |
+| `distance_from_home` | Decimal | Distance from home to workplace |
+| `manager_feedback_score` | Decimal | Manager feedback rating (scale 1 to 10) |
+| `churn` | Boolean | Departure status (`True`: departed, `False`: active) |
 
 ---
 
 ## 4. Project Workflow
 
-The project was executed through an end-to-end data analytics workflow comprising 5 distinct stages:
+The project was executed through an end-to-end data analytics workflow comprising 5 stages:
 
-Business exploration → Sourcing data & database ingestion → Data preprocessing → Building dimension and mart tables for data visualization → Power BI Dashboard authoring → Formulating business recommendations.
+Business exploration → Sourcing suitable data & database ingestion → Data preprocessing → Building dimension and mart tables for data visualization → Power BI Dashboard authoring → Formulating business recommendations.
 
-![Project Workflow Diagram](assets/workflow/employee-churn-workflow-home-v7-human.png)
+![Employee Churn Analysis Project Workflow](assets/workflow/employee-churn-workflow-home-v7-human.png)
 
 ### 4.1. Data Preprocessing
 
-- **Database Ingestion**: Used DBeaver to import `employee_info.xlsx` into the PostgreSQL database.
-- **Exploratory Data Analysis & Quality Audit using SQL ([data_quality_check.sql](data_quality_check.sql))**:
-  - *Duplicate check*: Verified exactly 10,000 unique records; zero duplicate `employee_id` values.
+- **Database Ingestion**: Used DBeaver to import the `employee_info.xlsx` file into the PostgreSQL database.
+- **Using PL/SQL Programming for exploratory data analysis ([data_quality_check.sql](data_quality_check.sql))**:
+  - *Duplicate check*: Verified exactly 10,000 rows with no duplicate `employee_id`.
   - *Missing value check*: Aside from `work_life_balance` having 10,000 missing values (100% Null), all 21 remaining attributes contain complete valid values. Decided to exclude `work_life_balance` from the entire analysis pipeline.
-  - *Valid range & logic checks*: Verified age ranges between 18 and 65; tenure spans 0 to 10 years; salary values are strictly positive; performance rating spans 1 to 5; satisfaction levels range from 0 to 1; and manager feedback scores range from 1 to 10.
+  - *Valid range check*: Verified that age ranges from 18 to 65 years; tenure spans 0 to 10 years; salary values are strictly positive; performance rating spans 1 to 5; satisfaction levels range from 0 to 1; and manager feedback scores range from 1 to 10.
 
 ### 4.2. Data Modeling
 
@@ -144,151 +121,151 @@ flowchart RL
     style MART fill:transparent,stroke:transparent
 
 ```
-Built dimension and fact tables using SQL ([reporting_marts.sql](reporting_marts.sql)):
+Built dimension and fact tables using PL/SQL Programming ([reporting_marts.sql](reporting_marts.sql)):
 
 1. **Building Dimension Tables**:
-   - `dim_department`: Department dimension (`IT`, `Sales`, `Marketing`, `HR`).
+   - `dim_department`: Department dimension table (`IT`, `Sales`, `Marketing`, `HR`).
 
 ![dim_department](assets/dim_mart_tables/dim_department.png)
 
-   - `dim_job_role`: Job role dimension (`Analyst`, `Developer`, `Manager`, `Sales`).
+   - `dim_job_role`: Job role dimension table (`Analyst`, `Developer`, `Manager`, `Sales`).
 
 ![dim_job_role](assets/dim_mart_tables/dim_job_role.png)
 
-   - `dim_gender`: Gender dimension (`Male`, `Female`, `Other`).
+   - `dim_gender`: Gender dimension table (`Male`, `Female`, `Other`).
 
 ![dim_gender](assets/dim_mart_tables/dim_gender.png)
 
-   - `dim_work_location`: Work arrangement dimension (`Remote`, `Hybrid`, `On-site`).
+   - `dim_work_location`: Work arrangement dimension table (`Remote`, `Hybrid`, `On-site`).
 
 ![dim_work_location](assets/dim_mart_tables/dim_work_location.png)
 
-2. **Building Fact Mart (`mart_employee_analytics`)**:
+2. **Building Fact Table (`mart_employee_analytics`)**:
 
 ![mart_employee_analytics](assets/dim_mart_tables/mart_employee_analytics_1.png)
 ![mart_employee_analytics](assets/dim_mart_tables/mart_employee_analytics_2.png)
 
-Key derived attributes:
+Details:
 
 - `tenure_band`: Tenure brackets (`Under 1 year`, `1 to under 3 years`, `3 to 5 years`, `Over 5 years`).
 - `age_band`: Age brackets with uniform intervals.
 - `overtime_band`: Overtime hours brackets (`0 hours`, `1-10 hours`, `11-20 hours`, `21+ hours`).
 - `monthly_hours_band`: Monthly working hours brackets (`150-179`, `180-209`, `210-239`, `240-269`, `270+`).
 - `performance_group`: Performance rating groups (`Low (1-2)`, `Medium (3)`, `High (4-5)`).
-- `satisfaction_band` & `feedback_band`: Satisfaction and manager feedback tiers categorized into Low, Medium, High.
+- `satisfaction_band` and `feedback_band`: Satisfaction and manager feedback tiers categorized into Low, Medium, High.
 - `peer_median_salary`: Median salary of peer group (matching `job_role` and `tenure_band`).
 - `salary_gap_vs_peer_median_pct`: Percentage salary variance compared to peer median: `(salary - peer_median_salary) / peer_median_salary`.
-- `role_peer_avg_salary`: Average salary of peers in the same job role (excluding the employee themselves).
+- `role_peer_avg_salary`: Average salary of peers in the same job role (calculated by excluding the evaluated employee).
 - `role_salary_gap_pct`: Percentage variance relative to role peer average: `(salary - role_peer_avg_salary) / role_peer_avg_salary`.
 - `underpaid_10_flag` & `underpaid_25_flag`: Flags identifying employees compensated below benchmark by 10% and 25% or more.
 
 3. **Data Dictionary (`mart_data_dictionary`)**:
-   Stores metadata, column names, data types, business definitions, and analytical roles, directly powering the Data Dictionary lookup page in Power BI.
+   Stores metadata, column names, data types, business definitions, and analytical roles, directly powering the Data Dictionary lookup page on the Power BI dashboard.
 
 ![mart_data_dictionary](assets/dim_mart_tables/mart_data_dictionary.png)
 
 ---
 
-## 5. Power BI Visualization & Empirical Findings
+## 5. Visualization and Analysis on Power BI
 
-### 5.1. Executive Overview
+### 5.1. Churn Overview
 
-![Dashboard Executive Overview](assets/dashboard/executive-overview.png)
+![Churn Overview Dashboard](assets/dashboard/executive-overview.png)
 
-The dashboard captures a total company workforce of **10,000 employees**, with **2,028 departed employees**, corresponding to a company-wide churn rate of **20.28%**.
+The data records a company-wide workforce of **10,000 employees**, with **2,028 departed employees**, corresponding to a company-wide churn rate of **20.28%**.
 
 Key findings:
 
 - **Department churn rates vary within a very tight band**, from **20.21% to 20.75%**. Marketing records the highest rate (20.75%), followed by HR (20.25%), IT (20.23%), and Sales (20.21%).
-- **Distribution by hire cohort**: Employees with an estimated hire year of 2018 recorded the highest churn rate at **22.69%**, while the 2025 cohort was lowest at **18.00%**. This indicator is derived from tenure and the 2026 analysis baseline, not actual hiring dates.
+- **Distribution by hire cohort**: Employees whose starting year was 2018 recorded the highest churn rate at **22.69%**, while the 2025 cohort was the lowest (**18.00%**). This indicator is inferred from tenure and the 2026 analysis baseline, not actual hiring dates.
 - **Distribution by tenure**: Employees with over 5 years of tenure recorded a churn rate of **20.93%**, higher than those with 1 to under 3 years (**18.51%**).
-- **Overall assessment**: Employee turnover is not isolated to any single department or tenure bracket, indicating workforce retention must be addressed company-wide.
+- **Overall assessment**: Turnover is not concentrated locally in any single department or tenure bracket, indicating that workforce retention must be approached company-wide.
 
-**Conclusion**: The relatively uniform churn rates across departments and tenure cohorts demonstrate that turnover is an organization-wide phenomenon rather than an isolated departmental issue. Leadership should prioritize synchronized retention initiatives while enhancing workplace experience and career progression opportunities to curb turnover across the organization.
+**Conclusion**: The relatively uniform churn rates across departments and tenure cohorts show that turnover is an organization-wide issue rather than an isolated departmental problem. The company should prioritize synchronized retention policies while focusing on enhancing the workplace experience and career development opportunities to mitigate turnover across the entire organization.
 
 ---
 
-### 5.2. Churn Drivers Analysis
+### 5.2. Factors Potentially Driving Employee Churn
 
-![Dashboard Churn Drivers](assets/dashboard/churn-drivers.png)
+![Churn Drivers Analysis Dashboard](assets/dashboard/churn-drivers.png)
 
 - **Gender**: Females recorded a churn rate of **20.99%**, males **19.91%**, and the other gender group **12.44%**.
-- **Overtime Hours**: Employees with zero overtime hours recorded a churn rate of **25.00%**, higher than those working over 20 overtime hours (**20.22%**).
-- **Working Hours & Satisfaction**: As average monthly working hours increase from 150–179 hours to 270+ hours, descriptive churn slightly decreases from **21.37% to 18.32%**.
-- **Manager Feedback & Promotion**: Churn rates across all three manager feedback groups (Low, Medium, High) hover around 20%; the proportion of employees promoted also remains consistent between **9.69% and 10.44%**.
-- **Absenteeism**: Average absent days across departments are virtually identical, ranging within a narrow band of **9.44 to 9.50 days**.
+- **Overtime Hours**: Employees with no overtime recorded a churn rate of **25.00%**, higher than those working over 20 overtime hours (**20.22%**).
+- **Working Hours and Satisfaction**: As average monthly working hours increase from 150–179 hours to over 270 hours, the churn rate in the data shows a slight downward trend from **21.37% down to 18.32%**.
+- **Manager Feedback and Promotion Opportunities**: Churn rates across all three manager feedback groups (Low, Medium, High) hover around 20%; the proportion of employees with prior promotions also fluctuates consistently between **9.69% and 10.44%**.
+- **Absenteeism**: The average number of absent days across departments is virtually identical, fluctuating within a very narrow range of **9.44 to 9.50 days**.
 
-**Conclusion**: Metrics indicate that turnover exhibits minimal variation across working hours, manager feedback, promotion opportunities, and absenteeism. Notably, females and employees with no recorded overtime experienced higher churn rates than comparison groups; therefore, management should tailor retention policies to distinct employee segments while improving the overall employee experience across the firm.
+**Conclusion**: The indicators show that the churn rate generally shows minimal variation across working hours, manager feedback, promotion opportunities, and absenteeism. Notably, females and employees without overtime hours recorded higher turnover rates than comparison groups; therefore, the business should focus on tailored retention policies for distinct groups while improving the workplace experience across the entire organization.
 
 ---
 
 ### 5.3. Compensation Fairness
 
-![Dashboard Compensation Fairness](assets/dashboard/compensation-fairness.png)
+![Compensation and Pay Fairness Analysis Dashboard](assets/dashboard/compensation-fairness.png)
 
-- **Salary Distribution**: Company-wide average salary is **$89,773**, and median salary is **$89,243**. The average salary of active employees (**$89,761**) is nearly identical to departed employees (**$89,821**), demonstrating that lower salary is not a direct explanatory factor for turnover.
-- **Peer Disparities**:
-  - **4,233 employees** receive compensation lower than their peer group average by 10% or more.
-  - Notably, **3,090 employees** receive compensation below the peer benchmark by 25% or more.
-- **Salary vs. Performance**: Average salary does not scale monotonically with performance ratings: the low-performance group has the highest average salary ($89,949), the medium group has the lowest ($89,269), and high performers average $89,846.
-- **Gender Pay Gap**: Females' unadjusted average salary is approximately **1.19%** lower than males'. After adjusting and controlling for job role and tenure cohort, the gap narrows to **-0.55%** (other gender group disparity is **-1.40%**).
-- **Department Pay Disparities**: Sales records the **highest** average and median salary, surpassing **$90k**, while other departments hover around **$89k**, indicating departmental compensation differences are largely marginal.
+- **Salary Distribution**: The company-wide average salary is **$89,773**, and median salary is **$89,243**. The average salary of active employees (**$89,761**) is nearly identical to departed employees (**$89,821**), demonstrating that lower salary is not a direct explanatory factor for turnover decisions.
+- **Salary Disparities Relative to Peers**:
+  - There are **4,233 employees** receiving salaries lower than the average of peers in the same role by 10% or more.
+  - Notably, **3,090 employees** receive salaries below the benchmark by 25% or more.
+- **Correlation Between Salary and Performance**: Average salary does not increase monotonically with performance evaluation ratings: the low-performance group has the highest average salary ($89,949), the medium group has the lowest ($89,269), and the high-performance group averages $89,846.
+- **Gender Pay Gap**: Females' average salary is approximately **1.19%** lower than males'. When benchmarking and controlling for job role and tenure bracket, the gap narrows to **-0.55%** (other gender group disparity is **-1.40%**).
+- **Department Pay Disparities**: Sales records the **highest** average and median salary, **exceeding $90k**, while average salaries in other departments hover around **$89k**, showing that salary disparities across departments are generally insignificant.
 
-**Conclusion**: Baseline salaries between active and departed employees are nearly identical, and salary differences across departments and genders are relatively small once controlling for role and tenure. However, the substantial count of employees compensated significantly below peers and the lack of differentiation between pay and performance highlight the necessity for internal equity reviews and better alignment between compensation and employee contributions.
+**Conclusion**: Salary baselines between active and departed employees are nearly equivalent, and pay disparities across departments and genders are relatively small after controlling for role and tenure. However, the large volume of employees receiving significantly lower compensation than peers and the fact that salaries do not clearly reflect performance differences indicate that the company needs to pay greater attention to internal equity and the alignment between remuneration and employee contributions.
 
 ---
 
 ### 5.4. Key Talent Loss Risk
 
-![Dashboard Key Talent Risk](assets/dashboard/key-talent-risk.png)
+![Key Talent Loss Risk Analysis Dashboard](assets/dashboard/key-talent-risk.png)
 
-- Metric `performance_rating >= 4` is used to identify high-performing employees.
-- The dashboard captures **4,092 high-performing employees**, with **823 having departed**, corresponding to a churn rate of **20.11%** (closely matching company-wide baseline).
+- The metric `performance_rating >= 4` is used to identify high-performing employees.
+- The data shows there are **4,092 high-performing employees**, of which **823 have departed**, corresponding to a churn rate in this group of **20.11%** (closely matching the company-wide average).
 
-Breakdown:
+Key breakdown:
 
 - By Department:
-  * Marketing high performers recorded the highest departmental churn rate at **23.20%**, but this cohort is relatively small at 388 employees (90 departed), far lower in volume than IT (337 of 1,645 departed).
+  * High performers in Marketing recorded the highest churn rate among departments at **23.20%**, but the group size is only 388 people (90 departures), significantly smaller than the volume pressure in IT (337 out of 1,645 departed).
 - By Job Role:
-  * Analysts recorded the highest churn rate **(21.58%)**, representing **251 of 1,163** departed employees. This is notable when compared to Developers, who had the highest raw count of departed personnel **(330 employees)**.
-- By Department & Role Combination:
-  * IT Analysts recorded a churn rate of **23.83%** (112 out of 470 high performers left). This represents the highest talent attrition rate and should be investigated by leadership as a top priority.
-  * IT Developers recorded **126 departed high performers** (out of 658 total). This represents the single largest departure count across all department-role combinations.
+  * Analysts recorded the highest churn rate **(21.58%)**, corresponding to **251 out of 1,163** departed employees. This is a notable volume when compared to Developers, who had the highest absolute number of departures **(330 employees)**.
+- By Department & Job Role Combination:
+  * IT Analysts recorded a churn rate of up to **23.83%** (corresponding to 112 out of 470 high performers leaving). This group has the highest talent attrition rate and requires leadership priority to investigate direct causes.
+  * IT Developers recorded **126 departed high performers** (out of 658 total). This group has the largest count of departing talent across all department–role combinations.
 
-- In volume terms, the IT department suffered the largest overall talent loss across the company, totaling **337 high performers** out of 1,645 (accounting for over 40% of all departed high performers).
+- In terms of volume, IT has the largest number of departing high performers across the company, reaching **337 people** out of 1,645 high performers (accounting for over 40% of all departed high performers).
 - Regarding tenure, high performers with more than 5 years of tenure recorded a churn rate of **20.87%**.
-- Regarding work arrangement, turnover differences between work models (Remote, Hybrid, On-site) are minimal, ranging from **19.81% to 20.89%**.
+- Regarding work arrangement, differences in churn rates between work arrangements (Remote, Hybrid, On-site) are negligible, fluctuating only from **19.81% to 20.89%**.
 
-**Conclusion**: Although the churn rate among high performers (20.11%) aligns with the company average, talent loss is critically concentrated within the **IT department**. Specifically, **IT Analysts** exhibit the highest departure rate (23.83%), while **IT Developers** recorded the highest departure count (126 people). The company should prioritize retaining key IT personnel, especially within these two groups, through competitive compensation, structured career progression, and timely recognition.
+**Conclusion**: The churn rate of high-performing employees stands at 20.11%, close to the company-wide average, but talent loss is critically concentrated within the **IT department**. Specifically, **IT Analysts** exhibit the highest turnover rate (23.83%), while **IT Developers** recorded the largest departure count (126 people). The company should prioritize retaining key talent within the **IT department**, particularly in these two groups, through appropriate compensation policies, career progression paths, and contribution recognition.
 
 ---
 
 ## 6. HR Strategic Recommendations
 
-**1. Enhancing Workplace Experience & Retention Policies**
+**1. Improve Workplace Experience and Retention Policies**
 
-- Build a transparent, equitable work environment that fosters skill development and acknowledges employee contributions.
-- Pay attention to distinct experience variations across employee cohorts, especially females and employees without recorded overtime.
-- Maintain organization-wide retention policies while directing resources toward segments exhibiting both high churn rates and substantial departure volumes.
+- Build a fair and transparent work environment that enables competency development and acknowledges employee contributions.
+- Pay attention to experience differences across employee groups, especially females and those without recorded overtime hours.
+- Maintain company-wide retention policies while prioritizing resources for groups exhibiting both high churn rates and large volumes of departures.
 
-**2. Strengthening Compensation Equity & Pay Transparency**
+**2. Enhance Fairness in Compensation Policies**
 
-- Audit employee profiles compensated significantly below peer benchmarks, particularly the 3,090 employees with salary gaps of 25% or greater.
-- Establish clear salary bands structured by role, tenure, competency, and contribution; ensure evaluations and pay adjustments are executed consistently.
-- Align performance appraisal outcomes with bonuses and recognition programs to improve transparency and ensure rewards reflect business impact.
+- Review cases where salaries are significantly lower than peer benchmarks for identical roles, especially the cohort lower by 25% or more.
+- Establish salary bands based on role, tenure, competency, and contribution; ensure performance evaluations and compensation adjustments are executed consistently.
+- Align performance evaluation results with bonus schemes and recognition programs to increase transparency and proportionality between compensation and work outcomes.
 
-**3. Prioritizing Key Talent Retention in IT**
+**3. Prioritize Retention of High-Performing Talent in IT**
 
-- Review compensation policies, technical career ladders, and promotional avenues tailored for IT Analysts and IT Developers.
-- Reinforce merit recognition, create opportunities to participate in high-impact projects, and formulate clear specialization pathways for key technical personnel.
-- Implement flexible retention strategies that accommodate specific technical work characteristics and individual employee aspirations.
+- Review compensation policies, professional career paths, and promotional opportunities tailored for IT Analysts and IT Developers.
+- Strengthen achievement recognition, create opportunities to participate in high-impact projects, and build clear technical development roadmaps for key talent.
+- Deploy flexible talent retention policies aligned with job characteristics and personnel needs.
 
 ---
 
-## 7. Personal Project Takeaways
+## 7. Key Personal Takeaways
 
-Gained an end-to-end analytical mindset and execution workflow for solving real-world employee data problems:
+Mastered the analytical mindset and end-to-end execution workflow for solving real-world employee data problems:
 
-- Deepened domain knowledge in Human Resource Management, including turnover dynamics, compensation equity, and talent retention, while mastering data-driven approaches to workforce decision-making.
-- Leveraged PostgreSQL to audit data quality, resolving issues regarding integrity, completeness, and boundary anomalies. Designed Dimension and Fact/Mart schemas for reporting, constructing derived metrics and peer compensation benchmarking logic.
-- Modeled data and established relationships in Power BI, authored DAX measures, and architected multi-page dashboards aligned with distinct analytical objectives. Visualized core KPIs, trends, and risk segments to enable stakeholders to quickly diagnose organizational health and prioritize operational interventions.
+- Deepened domain knowledge in human resource management such as turnover, compensation fairness, and talent retention; as well as data-driven approaches to HR challenges.
+- Leveraged PostgreSQL to audit data quality, identify and handle issues regarding data integrity, missing values, and anomalies. Designed Dimension and Fact/Mart tables for analytics, engineering derived metrics and peer compensation benchmarking logic.
+- Connected and modeled data in Power BI, authored DAX measures, and designed dashboards tailored to each analytical objective. Visualized key metrics, trends, and critical risk segments to enable stakeholders to quickly understand the current reality and determine priority actions.
